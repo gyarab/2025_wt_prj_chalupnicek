@@ -10,7 +10,7 @@ Aplikace používá Python Virtual Environment, před spuštěním je potřeba v
 python3 -m venv venv
 
 # Windows
-...
+py -3 -m venv venv
 ```
 
 Dále je třeba venv aktivovat:
@@ -20,7 +20,7 @@ Dále je třeba venv aktivovat:
 source ./venv/bin/activate
 
 # Windows - Bash
-...
+source ./venv/Scripts/activate
 
 # Windows - Power shell
 ...
