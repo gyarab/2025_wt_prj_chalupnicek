@@ -52,6 +52,8 @@ Pokud je DB prázdná a chceme mít přístup do Django administrace, vytvořím
 ./manage.py createsuperuser
 ```
 
+Doporučuji použít username `admin` a heslo `admin`, bez e-mailu.
+
 
 ## Změna `models.py`
 
