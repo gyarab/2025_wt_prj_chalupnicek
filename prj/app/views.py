@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-def render_homepage(request):
+def render_home(request):
     return render(request, 'home.html')
 
 def render_about(request):
