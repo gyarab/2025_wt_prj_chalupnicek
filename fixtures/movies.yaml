@@ -1,0 +1,35 @@
+- model: app.movie
+  pk: 1
+  fields:
+    title: Matrix
+    year: 1999
+    rating: 98
+    director: 1
+- model: app.movie
+  pk: 2
+  fields:
+    title: Pelíšky
+    year: 2000
+    rating: null
+    director: 1
+- model: app.movie
+  pk: 3
+  fields:
+    title: Inception
+    year: 2010
+    rating: 87
+    director: 2
+- model: app.movie
+  pk: 4
+  fields:
+    title: Goodfellas
+    year: 1990
+    rating: 94
+    director: 4
+- model: app.movie
+  pk: 5
+  fields:
+    title: Schindler's List
+    year: 1993
+    rating: 97
+    director: 3

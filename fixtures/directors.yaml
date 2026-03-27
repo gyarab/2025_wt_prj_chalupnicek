@@ -1,0 +1,23 @@
+- model: app.director
+  pk: 1
+  fields:
+    name: Quentin Tarantino
+    birth_year: 1952
+
+- model: app.director
+  pk: 2
+  fields:
+    name: Christopher Nolan
+    birth_year: 1970
+
+- model: app.director
+  pk: 3
+  fields:
+    name: Steven Spielberg
+    birth_year: 1946
+
+- model: app.director
+  pk: 4
+  fields:
+    name: Martin Scorsese
+    birth_year: 1942
