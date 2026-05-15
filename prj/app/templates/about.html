@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %}
-    About
-{% endblock %}
+{% block title %}O projektu{% endblock %}
 
 {% block content %}
-    <h1>About</h1>    
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, hic enim. Asperiores reprehenderit facilis commodi, maxime magni possimus voluptas itaque expedita maiores in deserunt? Distinctio quae magnam eveniet eaque nostrum.</p>
+<h1 class="page-title">O projektu</h1>
+<p>
+    FilmDB je školní projekt vyvíjený v rámci předmětu <em>Webové technologie</em>
+    na Gymnáziu Arabská ve školním roce 2025/2026.
+</p>
+<p>
+    Aplikace slouží jako jednoduchá filmová databáze inspirovaná weby jako
+    <a href="https://www.csfd.cz">ČSFD</a> nebo <a href="https://www.imdb.com">IMDb</a>.
+    Lze v ní procházet filmy, filtrovat je podle žánru, roku, režiséra a herce,
+    a po přihlášení také přidávat komentáře a hodnotit jednotlivé filmy.
+</p>
+<p>
+    Aplikace nabízí také REST API postavené na <a href="/api/docs">Django Ninja</a>.
+</p>
 {% endblock %}

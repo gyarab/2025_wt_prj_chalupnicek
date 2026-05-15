@@ -1,3 +1,9 @@
+# Demo uživatelé. Heslo všech níže uvedených účtů je "admin"
+# (záměrně – jedná se o ukázková data pro lokální vývoj).
+# Hash je stejný jako u původního admin uživatele; pbkdf2 hash je sám o sobě
+# unikátní díky soli, takže jeho sdílení mezi účty znamená pouze, že všechny
+# heslo "admin" akceptují.
+
 - model: auth.user
   pk: 1
   fields:
@@ -11,5 +17,80 @@
     is_staff: true
     is_active: true
     date_joined: 2026-03-20 10:35:22.080570+00:00
+    groups: []
+    user_permissions: []
+
+- model: auth.user
+  pk: 2
+  fields:
+    password: pbkdf2_sha256$1200000$2q7mk2InITXbcuWyquLnil$1SlQzN2rJ+d4UKN/iL4b6F7T/l2WblwgYOQMyq8MYgQ=
+    is_superuser: false
+    username: honza
+    first_name: Jan
+    last_name: Novák
+    email: honza@example.cz
+    is_staff: false
+    is_active: true
+    date_joined: 2026-04-02 10:00:00+00:00
+    groups: []
+    user_permissions: []
+
+- model: auth.user
+  pk: 3
+  fields:
+    password: pbkdf2_sha256$1200000$2q7mk2InITXbcuWyquLnil$1SlQzN2rJ+d4UKN/iL4b6F7T/l2WblwgYOQMyq8MYgQ=
+    is_superuser: false
+    username: petra
+    first_name: Petra
+    last_name: Dvořáková
+    email: petra@example.cz
+    is_staff: false
+    is_active: true
+    date_joined: 2026-04-04 12:00:00+00:00
+    groups: []
+    user_permissions: []
+
+- model: auth.user
+  pk: 4
+  fields:
+    password: pbkdf2_sha256$1200000$2q7mk2InITXbcuWyquLnil$1SlQzN2rJ+d4UKN/iL4b6F7T/l2WblwgYOQMyq8MYgQ=
+    is_superuser: false
+    username: martin
+    first_name: Martin
+    last_name: Svoboda
+    email: martin@example.cz
+    is_staff: false
+    is_active: true
+    date_joined: 2026-04-05 09:00:00+00:00
+    groups: []
+    user_permissions: []
+
+- model: auth.user
+  pk: 5
+  fields:
+    password: pbkdf2_sha256$1200000$2q7mk2InITXbcuWyquLnil$1SlQzN2rJ+d4UKN/iL4b6F7T/l2WblwgYOQMyq8MYgQ=
+    is_superuser: false
+    username: lenka
+    first_name: Lenka
+    last_name: Procházková
+    email: lenka@example.cz
+    is_staff: false
+    is_active: true
+    date_joined: 2026-04-06 18:00:00+00:00
+    groups: []
+    user_permissions: []
+
+- model: auth.user
+  pk: 6
+  fields:
+    password: pbkdf2_sha256$1200000$2q7mk2InITXbcuWyquLnil$1SlQzN2rJ+d4UKN/iL4b6F7T/l2WblwgYOQMyq8MYgQ=
+    is_superuser: false
+    username: tomas
+    first_name: Tomáš
+    last_name: Veselý
+    email: tomas@example.cz
+    is_staff: false
+    is_active: true
+    date_joined: 2026-04-08 21:30:00+00:00
     groups: []
     user_permissions: []

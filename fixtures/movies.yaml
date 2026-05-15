@@ -1,35 +1,1049 @@
+# Filmy (80 titulů – mix české a světové kinematografie, autorské/alternativní produkce)
+# Pozn.: poster_url používá službu picsum.photos s deterministickým seedem.
+# Pro reálné plakáty nahraď URL z TMDB/ČSFD/Wikipedie.
+
+# ---------- Česká kinematografie ----------
+
 - model: app.movie
   pk: 1
   fields:
-    title: Matrix
-    year: 1999
-    rating: 98
+    title: Kolja
+    original_title: Kolja
+    year: 1996
+    duration_minutes: 105
+    country: Česko
+    description: "Komorní rodinné drama o starém mládenci, violoncellistovi z barma žijícím v Praze za normalizace, kterému se po fiktivním sňatku s Ruskou nečekaně dostane do péče její pětiletý syn Kolja. Film získal v roce 1997 Oscara za nejlepší cizojazyčný snímek."
+    poster_url: https://picsum.photos/seed/movie-kolja/400/600
     director: 1
+    actors: [1]
+    genres: [1, 2]
 - model: app.movie
   pk: 2
   fields:
-    title: Pelíšky
-    year: 2000
-    rating: null
+    title: Obecná škola
+    original_title: Obecná škola
+    year: 1991
+    duration_minutes: 97
+    country: Česko
+    description: "Nostalgická komedie z prostředí poválečné pražské školy, kde se chlapecká třída setkává s charismatickým, ale tvrdým učitelem Hnízdem. Scénář napsal Zdeněk Svěrák podle vlastních vzpomínek."
+    poster_url: https://picsum.photos/seed/movie-obecna-skola/400/600
     director: 1
+    actors: [1]
+    genres: [1, 2]
 - model: app.movie
   pk: 3
   fields:
-    title: Inception
-    year: 2010
-    rating: 87
-    director: 2
+    title: Tmavomodrý svět
+    original_title: Tmavomodrý svět
+    year: 2001
+    duration_minutes: 112
+    country: Česko / Velká Británie
+    description: "Drama o československých letcích bojujících za druhé světové války v řadách RAF a jejich osudech po návratu domů, kdy je nový režim nahnal do uranových dolů. Strhující válečné scény i citlivý milostný trojúhelník."
+    poster_url: https://picsum.photos/seed/movie-tmavomodry-svet/400/600
+    director: 1
+    actors: [6, 20]
+    genres: [1, 12, 7]
 - model: app.movie
   pk: 4
   fields:
-    title: Goodfellas
-    year: 1990
-    rating: 94
-    director: 4
+    title: Vratné lahve
+    original_title: Vratné lahve
+    year: 2007
+    duration_minutes: 99
+    country: Česko
+    description: "Komediální drama o stárnoucím učiteli Tkalounovi, který odejde z školství a nastoupí jako pomocník u výkupu vratných lahví v supermarketu. Hřejivá tragikomedie o lásce, manželství a smyslu života."
+    poster_url: https://picsum.photos/seed/movie-vratne-lahve/400/600
+    director: 1
+    actors: [1, 12]
+    genres: [2, 1]
 - model: app.movie
   pk: 5
   fields:
-    title: Schindler's List
+    title: Pelíšky
+    original_title: Pelíšky
+    year: 1999
+    duration_minutes: 115
+    country: Česko
+    description: "Generační rodinná tragikomedie o dvou pražských rodinách – velvyslance Šebka a poručíka Krause – odehrávající se na pozadí konce 60. let a sovětské okupace v roce 1968. Kultovní film s nezapomenutelnými hláškami."
+    poster_url: https://picsum.photos/seed/movie-pelisky/400/600
+    director: 2
+    actors: [2, 3, 20]
+    genres: [2, 1]
+- model: app.movie
+  pk: 6
+  fields:
+    title: Musíme si pomáhat
+    original_title: Musíme si pomáhat
+    year: 2000
+    duration_minutes: 123
+    country: Česko
+    description: "Tragikomické drama o manželském páru za nacistické okupace, který se rozhodne ukrýt židovského souseda Davida. Film byl nominován na Oscara za nejlepší cizojazyčný film."
+    poster_url: https://picsum.photos/seed/movie-musime-si-pomahat/400/600
+    director: 2
+    actors: [3]
+    genres: [1, 12]
+- model: app.movie
+  pk: 7
+  fields:
+    title: Šakalí léta
+    original_title: Šakalí léta
     year: 1993
-    rating: 97
+    duration_minutes: 105
+    country: Česko
+    description: "Hudební retro komedie zasazená do období konce 50. let, kdy se v Československu rodí první generace ovlivněná rock'n'rollem. Bigbít, džíny, americká hudba a totalitní režim."
+    poster_url: https://picsum.photos/seed/movie-sakali-leta/400/600
+    director: 2
+    actors: [19]
+    genres: [1, 2, 14]
+- model: app.movie
+  pk: 8
+  fields:
+    title: Samotáři
+    original_title: Samotáři
+    year: 2000
+    duration_minutes: 103
+    country: Česko
+    description: "Generační milostná tragikomedie o sedmi pražských třicátnících hledajících lásku, smysl života i sami sebe. Charakteristický kultovní snímek s civilním herectvím a hudbou Jana P. Muchowa."
+    poster_url: https://picsum.photos/seed/movie-samotari/400/600
     director: 3
+    actors: [4, 5, 8]
+    genres: [2, 1, 7]
+- model: app.movie
+  pk: 9
+  fields:
+    title: Knoflíkáři
+    original_title: Knoflíkáři
+    year: 1997
+    duration_minutes: 108
+    country: Česko
+    description: "Surreálně laděné dramatické povídky propletené motivem náhody, osudu a kosmické ironie. Pět příběhů z Tokia, Hirošimy a Prahy spojených překvapivými souvislostmi."
+    poster_url: https://picsum.photos/seed/movie-knofliarci/400/600
+    director: 4
+    actors: [4]
+    genres: [1, 2]
+- model: app.movie
+  pk: 10
+  fields:
+    title: Rok ďábla
+    original_title: Rok ďábla
+    year: 2002
+    duration_minutes: 89
+    country: Česko
+    description: "Mystifikační hudební polodokument o Jaromíru Nohavicovi a jeho přátelích – Karlu Plíhalovi, Janu Sahanovi a kapele Čechomor. Film o alkoholu, hudbě a metafyzice."
+    poster_url: https://picsum.photos/seed/movie-rok-dabla/400/600
+    director: 4
+    actors: [21]
+    genres: [1, 14]
+- model: app.movie
+  pk: 11
+  fields:
+    title: Postřižiny
+    original_title: Postřižiny
+    year: 1980
+    duration_minutes: 93
+    country: Československo
+    description: "Adaptace stejnojmenné Hrabalovy prózy. Něžně-poetická vzpomínková komedie o životě v provinčním pivovaru ve 20. letech, vypravěčská Maryška a bouřlivý strýc Pepin."
+    poster_url: https://picsum.photos/seed/movie-postriziny/400/600
+    director: 5
+    actors: [14, 17]
+    genres: [2, 1]
+- model: app.movie
+  pk: 12
+  fields:
+    title: Ostře sledované vlaky
+    original_title: Ostře sledované vlaky
+    year: 1966
+    duration_minutes: 92
+    country: Československo
+    description: "Adaptace Hrabalovy novely o mladém výpravčím Miloši Hrmovi, který se na maličké železniční stanici za druhé světové války pokouší zbavit panictví – a zároveň vykonat odbojový čin. Film získal v roce 1968 Oscara."
+    poster_url: https://picsum.photos/seed/movie-ostre-sledovane-vlaky/400/600
+    director: 5
+    actors: [13]
+    genres: [1, 12]
+- model: app.movie
+  pk: 13
+  fields:
+    title: Slavnosti sněženek
+    original_title: Slavnosti sněženek
+    year: 1984
+    duration_minutes: 84
+    country: Československo
+    description: "Komedie podle povídek Bohumila Hrabala odehrávající se v chatařské osadě poblíž Kerska. Plejáda originálních lidských figurek, hospodských debat a sváru o ulovenou divočinu."
+    poster_url: https://picsum.photos/seed/movie-slavnosti-snezenek/400/600
+    director: 5
+    actors: [16]
+    genres: [2]
+- model: app.movie
+  pk: 14
+  fields:
+    title: Vesničko má středisková
+    original_title: Vesničko má středisková
+    year: 1985
+    duration_minutes: 98
+    country: Československo
+    description: "Komedie z české vesnice o přátelství řidiče Pávka a jeho prostoduchého pomocníka Otíka. Lyrický humor, typické menzelovské postavičky a portrét života v normalizační dědině."
+    poster_url: https://picsum.photos/seed/movie-vesnicko-ma/400/600
+    director: 5
+    actors: []
+    genres: [2, 1]
+- model: app.movie
+  pk: 15
+  fields:
+    title: Lásky jedné plavovlásky
+    original_title: Lásky jedné plavovlásky
+    year: 1965
+    duration_minutes: 81
+    country: Československo
+    description: "Klíčové dílo československé nové vlny. Komorní příběh Anduly z textilní továrny v Záluží, která se zamiluje do pražského pianisty. Citlivá studie samoty a touhy."
+    poster_url: https://picsum.photos/seed/movie-lasky-plavovlasky/400/600
+    director: 6
+    actors: []
+    genres: [1, 2, 7]
+- model: app.movie
+  pk: 16
+  fields:
+    title: Hoří, má panenko
+    original_title: Hoří, má panenko
+    year: 1967
+    duration_minutes: 71
+    country: Československo
+    description: "Satirická komedie Miloše Formana o hasičském plese v malém městě. Stárnoucí hasiči se snaží uspořádat tombolu a zvolit královnu krásy, vše se ale ironicky vymyká kontrole. Kritika socialistické byrokracie zaobalená do gagů."
+    poster_url: https://picsum.photos/seed/movie-hori-ma-panenko/400/600
+    director: 6
+    actors: []
+    genres: [2, 1]
+- model: app.movie
+  pk: 17
+  fields:
+    title: Černý Petr
+    original_title: Černý Petr
+    year: 1964
+    duration_minutes: 85
+    country: Československo
+    description: "Debut Miloše Formana. Příběh Petra, mladíka v prvním zaměstnání, kde má hlídat zákazníky v samoobsluze. Civilní portrét mladé generace a počátku české nové vlny."
+    poster_url: https://picsum.photos/seed/movie-cerny-petr/400/600
+    director: 6
+    actors: []
+    genres: [1]
+- model: app.movie
+  pk: 18
+  fields:
+    title: Spalovač mrtvol
+    original_title: Spalovač mrtvol
+    year: 1969
+    duration_minutes: 95
+    country: Československo
+    description: "Mrazivé psychologické drama podle románu Ladislava Fukse. Pan Kopfrkingl, zaměstnanec krematoria a milovník tibetské mystiky, se v období protektorátu postupně mění z dobráckého rodinného otce v nacistického zločince."
+    poster_url: https://picsum.photos/seed/movie-spalovac-mrtvol/400/600
+    director: 7
+    actors: [16]
+    genres: [8, 1]
+- model: app.movie
+  pk: 19
+  fields:
+    title: Petrolejové lampy
+    original_title: Petrolejové lampy
+    year: 1971
+    duration_minutes: 96
+    country: Československo
+    description: "Adaptace románu Jaroslava Havlíčka. Tragický příběh staré panny Štěpky, která se vdá za bývalého důstojníka rozežraného syfilidou. Sugestivní drama o samotě, marnosti a osudovosti."
+    poster_url: https://picsum.photos/seed/movie-petrolejove-lampy/400/600
+    director: 7
+    actors: [15]
+    genres: [1]
+- model: app.movie
+  pk: 20
+  fields:
+    title: Habermannův mlýn
+    original_title: Habermannův mlýn
+    year: 2010
+    duration_minutes: 105
+    country: Česko / Německo / Rakousko
+    description: "Historické drama o sudetoněmeckém mlynáři Augustinu Habermannovi, kterého poválečný odsun a divoké zúčtování s Němci přivedlo do osudového bezvýchodí. Film o vině, nenávisti a lidskosti."
+    poster_url: https://picsum.photos/seed/movie-habermannuv-mlyn/400/600
+    director: 7
+    actors: [7]
+    genres: [1, 12, 9]
+- model: app.movie
+  pk: 21
+  fields:
+    title: Sedmikrásky
+    original_title: Sedmikrásky
+    year: 1966
+    duration_minutes: 76
+    country: Československo
+    description: "Surrealistická a feministicky laděná experimentální komedie. Dvě dívky jménem Marie se rozhodnou, že když je svět zkažený, budou zkažené také. Kultovní dílo Věry Chytilové, ikona československé nové vlny."
+    poster_url: https://picsum.photos/seed/movie-sedmikrasky/400/600
+    director: 8
+    actors: []
+    genres: [2, 1]
+- model: app.movie
+  pk: 22
+  fields:
+    title: Ovoce stromů rajských jíme
+    original_title: Ovoce stromů rajských jíme
+    year: 1970
+    duration_minutes: 99
+    country: Československo / Belgie
+    description: "Alegorické autorské drama Věry Chytilové. Volné podobenství o ráji, vině a poznání s vizuálně silnou poetikou Jaroslava Kučery."
+    poster_url: https://picsum.photos/seed/movie-ovoce-stromu/400/600
+    director: 8
+    actors: []
+    genres: [1, 13]
+- model: app.movie
+  pk: 23
+  fields:
+    title: Markéta Lazarová
+    original_title: Markéta Lazarová
+    year: 1967
+    duration_minutes: 162
+    country: Československo
+    description: "Středověká freska podle románu Vladislava Vančury. Příběh lásky a krve uprostřed soupeření loupežnických rodů Kozlíkova a Lazarova. V anketě českých kritiků opakovaně zvolena nejlepším českým filmem všech dob."
+    poster_url: https://picsum.photos/seed/movie-marketa-lazarova/400/600
+    director: 9
+    actors: [14]
+    genres: [9, 1]
+- model: app.movie
+  pk: 24
+  fields:
+    title: Údolí včel
+    original_title: Údolí včel
+    year: 1968
+    duration_minutes: 97
+    country: Československo
+    description: "Historické drama o mladém řádovém rytíři Ondřejovi z 13. století, který uprchne z přísného německého řádu a vrátí se do rodného českého kraje. Vizuálně syrový obraz středověké fanatičnosti."
+    poster_url: https://picsum.photos/seed/movie-udoli-vcel/400/600
+    director: 9
+    actors: []
+    genres: [9, 1]
+- model: app.movie
+  pk: 25
+  fields:
+    title: Ucho
+    original_title: Ucho
+    year: 1970
+    duration_minutes: 94
+    country: Československo
+    description: "Politické psychologické drama o stranickém funkcionáři a jeho ženě, kteří po recepci v prezidentském paláci postupně zjišťují, že jsou odposloucháváni. Strhující obraz strachu v normalizační společnosti, film byl 20 let zakázaný."
+    poster_url: https://picsum.photos/seed/movie-ucho/400/600
+    director: 10
+    actors: []
+    genres: [1, 4]
+- model: app.movie
+  pk: 26
+  fields:
+    title: Limonádový Joe aneb Koňská opera
+    original_title: Limonádový Joe aneb Koňská opera
+    year: 1964
+    duration_minutes: 95
+    country: Československo
+    description: "Hudební parodie westernu podle románu Jiřího Brdečky. Hrdina Joe propaguje na Divokém západě limonádu Kolaloka místo whisky. Stylizovaný, hravý a vizuálně inventivní film."
+    poster_url: https://picsum.photos/seed/movie-limonadovy-joe/400/600
+    director: 11
+    actors: [18]
+    genres: [2, 14, 10]
+- model: app.movie
+  pk: 27
+  fields:
+    title: Adéla ještě nevečeřela
+    original_title: Adéla ještě nevečeřela
+    year: 1977
+    duration_minutes: 100
+    country: Československo
+    description: "Stylizovaná retrokomedie a parodie detektivního žánru. Americký detektiv Nick Carter řeší v secesní Praze záhadné zmizení Květušky Karasové, za kterým stojí masožravá rostlina Adéla."
+    poster_url: https://picsum.photos/seed/movie-adela-jeste-nevecerela/400/600
+    director: 11
+    actors: [15]
+    genres: [2, 10, 6]
+- model: app.movie
+  pk: 28
+  fields:
+    title: Tajemství hradu v Karpatech
+    original_title: Tajemství hradu v Karpatech
+    year: 1981
+    duration_minutes: 95
+    country: Československo
+    description: "Komediální parodie románu Julese Verna. Bizarní příběh záhadných úkazů na Sedmihradském hradu, kde tajemný hrabě Teleke chce přivolat zpět zemřelou divu Salzu Klapek."
+    poster_url: https://picsum.photos/seed/movie-tajemstvi-hradu/400/600
+    director: 11
+    actors: []
+    genres: [2, 10]
+- model: app.movie
+  pk: 29
+  fields:
+    title: Marečku, podejte mi pero!
+    original_title: Marečku, podejte mi pero!
+    year: 1976
+    duration_minutes: 86
+    country: Československo
+    description: "Kultovní česká komedie o partě dělníků, kteří si v rámci socialistických závodů musejí dokončit středoškolské vzdělání ve večerní škole. Plejáda nesmrtelných hlášek a postaviček."
+    poster_url: https://picsum.photos/seed/movie-marecku/400/600
+    director: 11
+    actors: [17]
+    genres: [2]
+- model: app.movie
+  pk: 30
+  fields:
+    title: Tři oříšky pro Popelku
+    original_title: Tři oříšky pro Popelku
+    year: 1973
+    duration_minutes: 84
+    country: Československo / NDR
+    description: "Klasická vánoční pohádka s nezapomenutelnou Libuší Šafránkovou v titulní roli. Popelka se v ní střílí z kuše, jezdí na koni a sama si vybírá osud. Hudba Karla Svobody."
+    poster_url: https://picsum.photos/seed/movie-tri-orisky/400/600
+    director: 12
+    actors: [12]
+    genres: [11, 7]
+- model: app.movie
+  pk: 31
+  fields:
+    title: Jak utopit doktora Mráčka aneb Konec vodníků v Čechách
+    original_title: Jak utopit doktora Mráčka aneb Konec vodníků v Čechách
+    year: 1974
+    duration_minutes: 86
+    country: Československo
+    description: "Pohádkovo-komediální fantazie o pražských vodnících, kteří se snaží přesvědčit elegantního doktora Mráčka, aby se k nim přidal do podvodního ráje."
+    poster_url: https://picsum.photos/seed/movie-doktor-mracek/400/600
+    director: 12
+    actors: []
+    genres: [2, 10, 11]
+- model: app.movie
+  pk: 32
+  fields:
+    title: Slunce, seno, jahody
+    original_title: Slunce, seno, jahody
+    year: 1984
+    duration_minutes: 91
+    country: Československo
+    description: "Vesnická komedie ze zemědělského družstva v Hošticích. První díl populární trilogie Zdeňka Trošky o studentech zemědělské školy na prázdninové brigádě."
+    poster_url: https://picsum.photos/seed/movie-slunce-seno/400/600
+    director: 13
+    actors: []
+    genres: [2]
+- model: app.movie
+  pk: 33
+  fields:
+    title: S tebou mě baví svět
+    original_title: S tebou mě baví svět
+    year: 1982
+    duration_minutes: 92
+    country: Československo
+    description: "Rodinná komedie o třech manželech, kteří vyrazí na hory bez svých žen – jen aby zjistili, že na chatě s nimi pobývají i jejich malé děti. Roztomilá generační komedie."
+    poster_url: https://picsum.photos/seed/movie-s-tebou-me-bavi/400/600
+    director: 16
+    actors: [19]
+    genres: [2]
+- model: app.movie
+  pk: 34
+  fields:
+    title: Vrchní, prchni!
+    original_title: Vrchní, prchni!
+    year: 1980
+    duration_minutes: 86
+    country: Československo
+    description: "Komedie ze scénáře Zdeňka Svěráka. Strážník knihovny Dalibor Vrána zjistí, že ho lidé v restauracích zaměňují za vrchního – a začne tak inkasovat tržbu, aby uživil rodinu."
+    poster_url: https://picsum.photos/seed/movie-vrchni-prchni/400/600
+    director: 17
+    actors: [19]
+    genres: [2]
+- model: app.movie
+  pk: 35
+  fields:
+    title: Toman
+    original_title: Toman
+    year: 2018
+    duration_minutes: 145
+    country: Česko
+    description: "Životopisné drama o Zdeňku Tomanovi, šéfovi zpravodajské služby a kontroverzní postavě poválečného Československa, který tahal za nitky ekonomicky i politicky."
+    poster_url: https://picsum.photos/seed/movie-toman/400/600
+    director: 14
+    actors: [5]
+    genres: [9, 1, 15]
+- model: app.movie
+  pk: 36
+  fields:
+    title: Občanský průkaz
+    original_title: Občanský průkaz
+    year: 2010
+    duration_minutes: 137
+    country: Česko
+    description: "Generační tragikomedie podle románu Petra Šabacha o čtyřech kamarádech dospívajících v normalizační Praze 70. let. Občanka v 15 letech, vojna, marná snaha o normální život."
+    poster_url: https://picsum.photos/seed/movie-obcansky-prukaz/400/600
+    director: 14
+    actors: [9]
+    genres: [1, 2]
+- model: app.movie
+  pk: 37
+  fields:
+    title: Účastníci zájezdu
+    original_title: Účastníci zájezdu
+    year: 2006
+    duration_minutes: 110
+    country: Česko
+    description: "Filmová adaptace stejnojmenného románu Michala Viewegha. Sebraná chasa českých turistů na zájezdu k italskému Jadranu – manželské krize, milostné poblouznění, životní zklamání i nečekané přátelství."
+    poster_url: https://picsum.photos/seed/movie-ucastnici-zajezdu/400/600
+    director: 15
+    actors: [8, 9]
+    genres: [2]
+- model: app.movie
+  pk: 38
+  fields:
+    title: Anděl Páně
+    original_title: Anděl Páně
+    year: 2005
+    duration_minutes: 99
+    country: Česko
+    description: "Filmová pohádka pro celou rodinu. Lehkomyslný anděl Petronel je za své prohřešky vyslán z nebe na zem, aby přivedl k pokání chamtivého kupce. Stal se z něj vánoční pohádkový stálec."
+    poster_url: https://picsum.photos/seed/movie-andel-pane/400/600
+    director: 18
+    actors: [4]
+    genres: [11, 2, 10]
+- model: app.movie
+  pk: 39
+  fields:
+    title: Lidice
+    original_title: Lidice
+    year: 2011
+    duration_minutes: 126
+    country: Česko / Slovensko / Polsko
+    description: "Historické válečné drama, jež skrze osudy jednoho dělníka rekonstruuje tragédii vypálení obce Lidice nacisty v roce 1942 po atentátu na Reinharda Heydricha."
+    poster_url: https://picsum.photos/seed/movie-lidice/400/600
+    director: 19
+    actors: [7]
+    genres: [12, 1, 9]
+- model: app.movie
+  pk: 40
+  fields:
+    title: Bobule
+    original_title: Bobule
+    year: 2008
+    duration_minutes: 94
+    country: Česko
+    description: "Komedie z prostředí jihomoravského vinařství. Dva pražští kamarádi Honza a Jirka jezdí na Moravu obírat vinice – až je tam zastaví láska a touha po lepším životě."
+    poster_url: https://picsum.photos/seed/movie-bobule/400/600
+    director: 20
+    actors: [20]
+    genres: [2]
+
+# ---------- Světová kinematografie ----------
+
+- model: app.movie
+  pk: 41
+  fields:
+    title: Pulp Fiction – Historky z podsvětí
+    original_title: Pulp Fiction
+    year: 1994
+    duration_minutes: 154
+    country: USA
+    description: "Kultovní nelineární gangsterský film. Propojené příběhy nájemných vrahů, boxera, mafiánského šéfa a jeho ženy – plné dialogů, popkultury, černého humoru a překvapivého násilí. Zlatá palma v Cannes a Oscar za scénář."
+    poster_url: https://picsum.photos/seed/movie-pulp-fiction/400/600
+    director: 21
+    actors: [23, 24, 25]
+    genres: [6, 1]
+- model: app.movie
+  pk: 42
+  fields:
+    title: 'Kill Bill: Vol. 1'
+    original_title: 'Kill Bill: Vol. 1'
+    year: 2003
+    duration_minutes: 111
+    country: USA
+    description: "Stylizovaný akční samurajský film o pomstě bývalé nájemné vražedkyně známé jako Nevěsta. První díl epické pomsty Quentina Tarantina ovlivněné asijskou kinematografií, kungfu a westernem."
+    poster_url: https://picsum.photos/seed/movie-kill-bill/400/600
+    director: 21
+    actors: [24]
+    genres: [5, 6]
+- model: app.movie
+  pk: 43
+  fields:
+    title: Gauneři
+    original_title: Reservoir Dogs
+    year: 1992
+    duration_minutes: 99
+    country: USA
+    description: "Celovečerní debut Quentina Tarantina. Skupina zlodějů, kteří se navzájem znají jen pod barevnými přezdívkami, se po nevydařeném přepadení klenotnictví snaží odhalit zrádce ve svých řadách."
+    poster_url: https://picsum.photos/seed/movie-reservoir-dogs/400/600
+    director: 21
+    actors: [26]
+    genres: [6, 4]
+- model: app.movie
+  pk: 44
+  fields:
+    title: Hanebný pancharti
+    original_title: Inglourious Basterds
+    year: 2009
+    duration_minutes: 153
+    country: USA / Německo
+    description: "Alternativní historie druhé světové války. Žid Aldo Raine vede oddíl amerických vojáků židovského původu, jejichž úkolem je zabíjet nacisty v okupované Francii. Současně paralelně sledujeme příběh Shoshanny Dreyfusové, dědičky zničeného pařížského kina."
+    poster_url: https://picsum.photos/seed/movie-inglourious-basterds/400/600
+    director: 21
+    actors: [27]
+    genres: [12, 1, 5]
+- model: app.movie
+  pk: 45
+  fields:
+    title: Tenkrát v Americe
+    original_title: Once Upon a Time in America
+    year: 1984
+    duration_minutes: 229
+    country: USA / Itálie
+    description: "Epické gangsterské drama Sergia Leoneho. Osudy židovských chuligánů na New Yorku, kteří v období prohibice vyrostou v mocné gangstery. Příběh přátelství, zrady a marně utíkajícího času."
+    poster_url: https://picsum.photos/seed/movie-tenkrat-v-americe/400/600
+    director: 22
+    actors: [28]
+    genres: [1, 6]
+- model: app.movie
+  pk: 46
+  fields:
+    title: Hodný, zlý a ošklivý
+    original_title: Il buono, il brutto, il cattivo
+    year: 1966
+    duration_minutes: 178
+    country: Itálie / Španělsko / Z. Německo
+    description: "Třetí část dolarové trilogie Sergia Leoneho. V období americké občanské války se tři pistolníci ženou za zlatem ukrytým na hřbitově. Kultovní spaghetti western s hudbou Ennia Morriconeho."
+    poster_url: https://picsum.photos/seed/movie-hodny-zly-osklivy/400/600
+    director: 22
+    actors: [29]
+    genres: [5, 9]
+- model: app.movie
+  pk: 47
+  fields:
+    title: Tenkrát na západě
+    original_title: C'era una volta il West
+    year: 1968
+    duration_minutes: 165
+    country: Itálie / USA
+    description: "Operní western Sergia Leoneho. Tajemný harmonikář, dáma z New Orleans, bandita a chladnokrevný nájemný zabiják se setkávají v městečku Flagstone u rozestavěné železnice. Vrcholné dílo žánru."
+    poster_url: https://picsum.photos/seed/movie-tenkrat-na-zapade/400/600
+    director: 22
+    actors: [30]
+    genres: [5, 9, 1]
+- model: app.movie
+  pk: 48
+  fields:
+    title: Mulholland Drive
+    original_title: Mulholland Drive
+    year: 2001
+    duration_minutes: 147
+    country: USA / Francie
+    description: "Snový mysteriózní thriller Davida Lynche. Začínající herečka Betty pomáhá záhadné brunetě po autonehodě objasnit, kdo vlastně je. Hypnotická vrstvená meditace o Hollywoodu, identitě a snění."
+    poster_url: https://picsum.photos/seed/movie-mulholland-drive/400/600
+    director: 23
+    actors: [31]
+    genres: [13, 1, 4]
+- model: app.movie
+  pk: 49
+  fields:
+    title: Modrý samet
+    original_title: Blue Velvet
+    year: 1986
+    duration_minutes: 120
+    country: USA
+    description: "Mysteriózní thriller Davida Lynche. Mladík Jeffrey nalezne v trávě uříznuté lidské ucho a začne pátrat po jeho původu. Cesta ho zavede do temných zákoutí maloměstské Ameriky."
+    poster_url: https://picsum.photos/seed/movie-modry-samet/400/600
+    director: 23
+    actors: [32]
+    genres: [13, 4, 1]
+- model: app.movie
+  pk: 50
+  fields:
+    title: Stalker
+    original_title: Сталкер
+    year: 1979
+    duration_minutes: 162
+    country: SSSR
+    description: "Filosofické sci-fi Andreje Tarkovského podle románu bratrů Strugackých. Stalker provází Spisovatele a Profesora skrz zakázanou Zónu k tajemnému Pokoji, který prý plní nejtajnější přání. Hypnotická duchovní cesta."
+    poster_url: https://picsum.photos/seed/movie-stalker/400/600
+    director: 24
+    actors: [22]
+    genres: [3, 1]
+- model: app.movie
+  pk: 51
+  fields:
+    title: Solaris
+    original_title: Солярис
+    year: 1972
+    duration_minutes: 167
+    country: SSSR
+    description: "Filosofické sci-fi podle románu Stanisława Lema. Psycholog Kelvin přiletí na výzkumnou stanici nad planetou Solaris, kde se vědcům začínají zjevovat materializované vzpomínky z jejich podvědomí."
+    poster_url: https://picsum.photos/seed/movie-solaris/400/600
+    director: 24
+    actors: []
+    genres: [3, 1]
+- model: app.movie
+  pk: 52
+  fields:
+    title: Sedm samurajů
+    original_title: 七人の侍
+    year: 1954
+    duration_minutes: 207
+    country: Japonsko
+    description: "Klasický japonský epos Akiry Kurosawy. Vesničané najmou sedm bezzemků – samurajů, aby je ochránili před bandity. Předobraz Sedmi statečných i nesčetných dalších filmů."
+    poster_url: https://picsum.photos/seed/movie-sedm-samuraju/400/600
+    director: 25
+    actors: [33]
+    genres: [5, 1, 9]
+- model: app.movie
+  pk: 53
+  fields:
+    title: Rašómon
+    original_title: 羅生門
+    year: 1950
+    duration_minutes: 88
+    country: Japonsko
+    description: "Slavný experiment s vyprávěcí perspektivou. Čtyři svědci popisují tutéž událost – přepadení, znásilnění a vraždu – pokaždé jinak. Film, který přinesl japonský film na světovou scénu."
+    poster_url: https://picsum.photos/seed/movie-rashomon/400/600
+    director: 25
+    actors: [33]
+    genres: [1, 6]
+- model: app.movie
+  pk: 54
+  fields:
+    title: Sedmá pečeť
+    original_title: Det sjunde inseglet
+    year: 1957
+    duration_minutes: 96
+    country: Švédsko
+    description: "Filosofické středověké drama Ingmara Bergmana. Rytíř Antonius Block se po návratu z křižáckého tažení v morem zachváceném Švédsku setká se Smrtí a snaží se získat čas hrou v šachy."
+    poster_url: https://picsum.photos/seed/movie-sedma-pecet/400/600
+    director: 26
+    actors: [34]
+    genres: [1, 10, 9]
+- model: app.movie
+  pk: 55
+  fields:
+    title: Lesní jahody
+    original_title: Smultronstället
+    year: 1957
+    duration_minutes: 91
+    country: Švédsko
+    description: "Vzpomínková road movie Ingmara Bergmana. Stárnoucí profesor Borg cestuje za vyznamenáním na Lundskou univerzitu a po cestě prochází vzpomínkami, sny a vlastní bilancí života."
+    poster_url: https://picsum.photos/seed/movie-lesni-jahody/400/600
+    director: 26
+    actors: []
+    genres: [1]
+- model: app.movie
+  pk: 56
+  fields:
+    title: Persona
+    original_title: Persona
+    year: 1966
+    duration_minutes: 84
+    country: Švédsko
+    description: "Komorní psychologické drama o herečce, která uprostřed představení přestala mluvit, a její ošetřovatelce. Na opuštěném mořském pobřeží mezi nimi začíná podivná hra splývajících identit."
+    poster_url: https://picsum.photos/seed/movie-persona/400/600
+    director: 26
+    actors: []
+    genres: [1, 13]
+- model: app.movie
+  pk: 57
+  fields:
+    title: Sladký život
+    original_title: La dolce vita
+    year: 1960
+    duration_minutes: 174
+    country: Itálie / Francie
+    description: "Kultovní mozaika nocí na římské Via Veneto. Bulvární novinář Marcello bloudí mezi celebritami, aristokracií i nočním Římem v hledání smyslu. Zlatá palma v Cannes a Oscar za kostýmy."
+    poster_url: https://picsum.photos/seed/movie-dolce-vita/400/600
+    director: 27
+    actors: [35]
+    genres: [1, 2]
+- model: app.movie
+  pk: 58
+  fields:
+    title: Osm a půl
+    original_title: 8 ½
+    year: 1963
+    duration_minutes: 138
+    country: Itálie / Francie
+    description: "Autobiografická studie tvůrčí krize režiséra Guida Anselmiho. Federico Fellini volně promíchává realitu, sny a vzpomínky do barokní filmové pohádky. Dvojnásobný držitel Oscara."
+    poster_url: https://picsum.photos/seed/movie-osm-a-pul/400/600
+    director: 27
+    actors: [35, 36]
+    genres: [1, 13]
+- model: app.movie
+  pk: 59
+  fields:
+    title: Amarcord
+    original_title: Amarcord
+    year: 1973
+    duration_minutes: 124
+    country: Itálie / Francie
+    description: "Nostalgické pásmo vzpomínek Federica Felliniho na rodné Rimini ve 30. letech. Maloměstské figurky, mladická erotika, fašistické průvody, sníh a pávi – vše v poetické směsi reality a fantazie."
+    poster_url: https://picsum.photos/seed/movie-amarcord/400/600
+    director: 27
+    actors: []
+    genres: [1, 2]
+- model: app.movie
+  pk: 60
+  fields:
+    title: Kmotr
+    original_title: The Godfather
+    year: 1972
+    duration_minutes: 175
+    country: USA
+    description: "Monumentální gangsterská sága o newyorské sicilské rodině Corleonových. Don Vito Corleone postupně předává moc svému nejmladšímu synovi Michaelovi. Jedno z nejvýznamnějších děl filmové historie."
+    poster_url: https://picsum.photos/seed/movie-kmotr/400/600
+    director: 28
+    actors: [37, 38]
+    genres: [1, 6]
+- model: app.movie
+  pk: 61
+  fields:
+    title: Apokalypsa
+    original_title: Apocalypse Now
+    year: 1979
+    duration_minutes: 153
+    country: USA
+    description: "Halucinační válečné drama o kapitánu Willardovi vyslaném za války ve Vietnamu zlikvidovat zběhlého plukovníka Kurtze. Volné zpracování novely Srdce temnoty Josepha Conrada. Zlatá palma v Cannes."
+    poster_url: https://picsum.photos/seed/movie-apokalypsa/400/600
+    director: 28
+    actors: [39, 37]
+    genres: [12, 1]
+- model: app.movie
+  pk: 62
+  fields:
+    title: Taxikář
+    original_title: Taxi Driver
+    year: 1976
+    duration_minutes: 114
+    country: USA
+    description: "Klasické psychologické drama Martina Scorseseho. Travis Bickle, válečný veterán z Vietnamu trpící nespavostí, jezdí noční New York jako taxikář a postupně se propadá do vlastních obsesí a fantazií o spravedlnosti."
+    poster_url: https://picsum.photos/seed/movie-taxikar/400/600
+    director: 29
+    actors: [28]
+    genres: [1, 6]
+- model: app.movie
+  pk: 63
+  fields:
+    title: Mafiáni
+    original_title: Goodfellas
+    year: 1990
+    duration_minutes: 146
+    country: USA
+    description: "Adaptace skutečného příběhu Henryho Hilla – malého kluka z Brooklynu, který se vypracuje až mezi mafiánskou špičku. Energický, geniálně střižený a vypravěčsky strhující film Martina Scorseseho."
+    poster_url: https://picsum.photos/seed/movie-mafiani/400/600
+    director: 29
+    actors: [28, 40]
+    genres: [6, 1]
+- model: app.movie
+  pk: 64
+  fields:
+    title: Zuřící býk
+    original_title: Raging Bull
+    year: 1980
+    duration_minutes: 129
+    country: USA
+    description: "Černobílý životopisný film o boxerovi Jaku LaMottovi, jehož sebedestruktivní povaha zničí jak jeho kariéru, tak rodinu. Robert De Niro za roli získal Oscara a kvůli ní přibral 30 kilo."
+    poster_url: https://picsum.photos/seed/movie-zurici-byk/400/600
+    director: 29
+    actors: [28]
+    genres: [1, 15]
+- model: app.movie
+  pk: 65
+  fields:
+    title: Schindlerův seznam
+    original_title: Schindler's List
+    year: 1993
+    duration_minutes: 195
+    country: USA
+    description: "Skutečný příběh Oskara Schindlera, německého průmyslníka, který zachránil přes tisíc polských Židů tím, že je zaměstnal ve své továrně. Černobílá freska Stevena Spielberga oceněná sedmi Oscary."
+    poster_url: https://picsum.photos/seed/movie-schindleruv-seznam/400/600
+    director: 30
+    actors: [41, 42]
+    genres: [1, 9, 12, 15]
+- model: app.movie
+  pk: 66
+  fields:
+    title: Forrest Gump
+    original_title: Forrest Gump
+    year: 1994
+    duration_minutes: 142
+    country: USA
+    description: "Životní osudy prostého chlapce z Alabamy, který nechtěně prochází velkými událostmi americké historie 60. až 80. let – od války ve Vietnamu, přes setkání s prezidenty až po počátky boomu Apple. Šest Oscarů."
+    poster_url: https://picsum.photos/seed/movie-forrest-gump/400/600
+    director: 31
+    actors: [43]
+    genres: [1, 2, 7]
+- model: app.movie
+  pk: 67
+  fields:
+    title: Amélie z Montmartru
+    original_title: Le fabuleux destin d'Amélie Poulain
+    year: 2001
+    duration_minutes: 122
+    country: Francie / Německo
+    description: "Pohádková poetická komedie Jean-Pierra Jeuneta o plaché servírce Amélii, která se rozhodne tajně dělat lidem ve svém okolí radost. Vrcholná oslava drobných všedních krás."
+    poster_url: https://picsum.photos/seed/movie-amelie/400/600
+    director: 32
+    actors: [44]
+    genres: [2, 7]
+- model: app.movie
+  pk: 68
+  fields:
+    title: Věčný svit neposkvrněné mysli
+    original_title: Eternal Sunshine of the Spotless Mind
+    year: 2004
+    duration_minutes: 108
+    country: USA
+    description: "Sci-fi melodrama o lásce, kterou nelze vymazat. Joel a Clementine se rozejdou a podstoupí proceduru selektivního vymazání vzájemných vzpomínek – aby si během ní uvědomili, jak moc se milovali. Oscar za scénář."
+    poster_url: https://picsum.photos/seed/movie-vecny-svit/400/600
+    director: 33
+    actors: [45, 46]
+    genres: [1, 3, 7]
+- model: app.movie
+  pk: 69
+  fields:
+    title: Ztraceno v překladu
+    original_title: Lost in Translation
+    year: 2003
+    duration_minutes: 102
+    country: USA / Japonsko
+    description: "Křehká komorní romance dvou Američanů – stárnoucího herce a mladé manželky fotografa – kteří se náhodou potkávají v Tokiu a v cizím městě nacházejí spřízněnou duši. Oscar za originální scénář."
+    poster_url: https://picsum.photos/seed/movie-ztraceno-v-prekladu/400/600
+    director: 34
+    actors: [47, 48]
+    genres: [1, 7, 2]
+- model: app.movie
+  pk: 70
+  fields:
+    title: Donnie Darko
+    original_title: Donnie Darko
+    year: 2001
+    duration_minutes: 113
+    country: USA
+    description: "Kultovní mysteriózní sci-fi o problémovém středoškolákovi Donniem, který má vize ohromného králíka Franka. Ten mu sděluje, že světu zbývá 28 dní, 6 hodin, 42 minut a 12 vteřin."
+    poster_url: https://picsum.photos/seed/movie-donnie-darko/400/600
+    director: 35
+    actors: [49]
+    genres: [13, 3, 1]
+- model: app.movie
+  pk: 71
+  fields:
+    title: Whiplash
+    original_title: Whiplash
+    year: 2014
+    duration_minutes: 107
+    country: USA
+    description: "Intenzivní drama o ambiciózním studentovi bicí Andrewovi a jeho sadistickém profesorovi Fletcherovi. Souboj o dokonalost, který stojí krev, pot a slzy. Tři Oscary."
+    poster_url: https://picsum.photos/seed/movie-whiplash/400/600
+    director: 36
+    actors: [50]
+    genres: [1, 14]
+- model: app.movie
+  pk: 72
+  fields:
+    title: La La Land
+    original_title: La La Land
+    year: 2016
+    duration_minutes: 128
+    country: USA
+    description: "Hudební romance v barvách CinemaScope. Jazzový pianista Sebastian a začínající herečka Mia se v Los Angeles zamilují a navzájem si pomáhají uskutečnit své sny. Šest Oscarů."
+    poster_url: https://picsum.photos/seed/movie-la-la-land/400/600
+    director: 36
+    actors: [51, 52]
+    genres: [14, 7, 1]
+- model: app.movie
+  pk: 73
+  fields:
+    title: Birdman
+    original_title: Birdman or (The Unexpected Virtue of Ignorance)
+    year: 2014
+    duration_minutes: 119
+    country: USA
+    description: "Stylisticky odvážná tragikomedie o stárnoucím hollywoodském herci, který se kdysi proslavil jako filmový superhrdina a nyní se zoufale snaží probojovat na Broadway. Natočeno jako jeden plynulý záběr. Čtyři Oscary."
+    poster_url: https://picsum.photos/seed/movie-birdman/400/600
+    director: 37
+    actors: [53]
+    genres: [1, 2]
+- model: app.movie
+  pk: 74
+  fields:
+    title: Babel
+    original_title: Babel
+    year: 2006
+    duration_minutes: 143
+    country: USA / Mexiko / Francie
+    description: "Čtyři propletené příběhy ze čtyř kontinentů, které spojí jediný výstřel. Mozaikové drama o nemožnosti komunikace, neporozumění a globální vzájemné provázanosti."
+    poster_url: https://picsum.photos/seed/movie-babel/400/600
+    director: 37
+    actors: [27]
+    genres: [1]
+- model: app.movie
+  pk: 75
+  fields:
+    title: Život je krásný
+    original_title: La vita è bella
+    year: 1997
+    duration_minutes: 116
+    country: Itálie
+    description: "Tragikomedie Roberta Benigniho o židovském knihkupci, který se v koncentračním táboře snaží svému malému synovi předstírat, že vše je jen velká hra. Tři Oscary, mj. za nejlepší cizojazyčný film a hlavní mužský výkon."
+    poster_url: https://picsum.photos/seed/movie-zivot-je-krasny/400/600
+    director: 38
+    actors: [58]
+    genres: [1, 2, 12]
+- model: app.movie
+  pk: 76
+  fields:
+    title: Parazit
+    original_title: 기생충
+    year: 2019
+    duration_minutes: 132
+    country: Jižní Korea
+    description: "Sociální thriller o chudé jihokorejské rodině Kim, která se postupně infiltruje jako služebnictvo do domácnosti bohaté rodiny Park. Historicky první neanglicky mluvený film, který získal Oscara za nejlepší film."
+    poster_url: https://picsum.photos/seed/movie-parazit/400/600
+    director: 39
+    actors: [54]
+    genres: [1, 4]
+- model: app.movie
+  pk: 77
+  fields:
+    title: Old Boy
+    original_title: 올드보이
+    year: 2003
+    duration_minutes: 120
+    country: Jižní Korea
+    description: "Stylizovaný thriller o muži Oh Dae-suovi, který je 15 let bezdůvodně vězněn v soukromé cele, načež je propuštěn a má pět dní na odhalení svého věznitele. Jeden z vrcholů jihokorejské kinematografie."
+    poster_url: https://picsum.photos/seed/movie-old-boy/400/600
+    director: 40
+    actors: [55]
+    genres: [4, 1, 13]
+- model: app.movie
+  pk: 78
+  fields:
+    title: Grandhotel Budapešť
+    original_title: The Grand Budapest Hotel
+    year: 2014
+    duration_minutes: 100
+    country: USA / Německo
+    description: "Stylizovaná komediální detektivka Wese Andersona. Slavný evropský hotel Grand Budapest mezi dvěma světovými válkami, jeho nezapomenutelný concierge Gustave H. a jeho mladý chráněnec Zero. Čtyři Oscary."
+    poster_url: https://picsum.photos/seed/movie-grandhotel-budapest/400/600
+    director: 41
+    actors: [42]
+    genres: [2, 1, 6]
+- model: app.movie
+  pk: 79
+  fields:
+    title: Trainspotting
+    original_title: Trainspotting
+    year: 1996
+    duration_minutes: 93
+    country: Velká Británie
+    description: "Energický a brutálně upřímný film o partě edinburských heroinových narkomanů – Renton, Sick Boy, Spud a Begbie. Generační kultovní snímek Dannyho Boylea s hudbou Iggyho Popa a Underworld."
+    poster_url: https://picsum.photos/seed/movie-trainspotting/400/600
+    director: 42
+    actors: [56]
+    genres: [1, 6]
+- model: app.movie
+  pk: 80
+  fields:
+    title: Maják
+    original_title: The Lighthouse
+    year: 2019
+    duration_minutes: 109
+    country: USA / Kanada
+    description: "Černobílý halucinační horor Roberta Eggerse. Dva strážci majáku na pustém kanadském ostrově konce 19. století se vzájemně mučí, opíjí a hroutí. Atmosférická vizuální báseň o šílenství a samotě."
+    poster_url: https://picsum.photos/seed/movie-majak/400/600
+    director: 43
+    actors: [57]
+    genres: [1, 8, 13]

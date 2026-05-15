@@ -1,11 +1,81 @@
 {% extends 'base.html' %}
 
-{% block title %}
-    Home
-{% endblock %}
-    
+{% block title %}Filmy{% endblock %}
+
 {% block content %}
-    <h1>Home</h1>    
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, hic enim. Asperiores reprehenderit facilis commodi, maxime magni possimus voluptas itaque expedita maiores in deserunt? Distinctio quae magnam eveniet eaque nostrum.</p>
+<h1 class="page-title">Filmy</h1>
+
+<form method="get" class="filter-bar">
+    <div>
+        <label for="q">Hledat v názvu</label>
+        <input type="text" id="q" name="q" value="{{ q }}" placeholder="Pulp Fiction…">
+    </div>
+    <div>
+        <label for="year">Rok</label>
+        <select id="year" name="year">
+            <option value="">Všechny</option>
+            {% for y in years %}
+                <option value="{{ y }}" {% if y|stringformat:"s" == selected_year %}selected{% endif %}>{{ y }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="genre">Žánr</label>
+        <select id="genre" name="genre">
+            <option value="">Všechny</option>
+            {% for g in genres %}
+                <option value="{{ g.id }}" {% if g.id|stringformat:"s" == selected_genre %}selected{% endif %}>{{ g.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="director">Režisér</label>
+        <select id="director" name="director">
+            <option value="">Všichni</option>
+            {% for d in directors %}
+                <option value="{{ d.id }}" {% if d.id|stringformat:"s" == selected_director %}selected{% endif %}>{{ d.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="actor">Herec / Herečka</label>
+        <select id="actor" name="actor">
+            <option value="">Všichni</option>
+            {% for a in actors %}
+                <option value="{{ a.id }}" {% if a.id|stringformat:"s" == selected_actor %}selected{% endif %}>{{ a.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="filter-actions">
+        <button type="submit" class="btn">Filtrovat</button>
+        <a href="{% url 'home' %}" class="btn secondary">Reset</a>
+    </div>
+</form>
+
+<p class="muted">Nalezeno {{ movies|length }} filmů</p>
+
+{% if movies %}
+<div class="movie-grid">
+    {% for movie in movies %}
+        <a href="{% url 'movie_detail' movie.id %}" class="movie-card">
+            <div class="poster" style="{% if movie.poster_url %}background-image: url('{{ movie.poster_url }}');{% endif %}"></div>
+            <div class="body">
+                <div class="title">{{ movie.title }}</div>
+                <div class="meta">
+                    {% if movie.year %}{{ movie.year }}{% endif %}
+                    {% if movie.director %} · {{ movie.director.name }}{% endif %}
+                </div>
+                {% if movie.avg %}
+                    <span class="rating-badge">★ {{ movie.avg|floatformat:1 }}</span>
+                {% endif %}
+            </div>
+        </a>
+    {% endfor %}
+</div>
+{% else %}
+<div class="empty-state">
+    <h3>Žádné filmy neodpovídají filtru.</h3>
+    <p>Zkus upravit hledání nebo vrátit filtry.</p>
+</div>
+{% endif %}
 {% endblock %}
-    

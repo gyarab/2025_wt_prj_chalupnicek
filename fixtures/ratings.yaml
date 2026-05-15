@@ -1,0 +1,181 @@
+# Demo hodnocení (1–10). Každý uživatel může mít max. 1 hodnocení na jeden film.
+- model: app.rating
+  pk: 1
+  fields: {movie: 1, user: 2, value: 10, created_at: 2026-04-10 18:30:00+00:00}
+- model: app.rating
+  pk: 2
+  fields: {movie: 1, user: 3, value: 9, created_at: 2026-04-11 09:15:00+00:00}
+- model: app.rating
+  pk: 3
+  fields: {movie: 1, user: 4, value: 9, created_at: 2026-04-11 12:00:00+00:00}
+- model: app.rating
+  pk: 4
+  fields: {movie: 5, user: 2, value: 10, created_at: 2026-04-12 21:00:00+00:00}
+- model: app.rating
+  pk: 5
+  fields: {movie: 5, user: 4, value: 10, created_at: 2026-04-12 22:00:00+00:00}
+- model: app.rating
+  pk: 6
+  fields: {movie: 5, user: 5, value: 9, created_at: 2026-04-13 08:00:00+00:00}
+- model: app.rating
+  pk: 7
+  fields: {movie: 5, user: 6, value: 8, created_at: 2026-04-13 09:00:00+00:00}
+- model: app.rating
+  pk: 8
+  fields: {movie: 12, user: 5, value: 10, created_at: 2026-04-14 08:00:00+00:00}
+- model: app.rating
+  pk: 9
+  fields: {movie: 12, user: 3, value: 9, created_at: 2026-04-14 10:00:00+00:00}
+- model: app.rating
+  pk: 10
+  fields: {movie: 18, user: 3, value: 9, created_at: 2026-04-15 22:10:00+00:00}
+- model: app.rating
+  pk: 11
+  fields: {movie: 18, user: 2, value: 9, created_at: 2026-04-15 23:00:00+00:00}
+- model: app.rating
+  pk: 12
+  fields: {movie: 23, user: 4, value: 10, created_at: 2026-04-16 19:30:00+00:00}
+- model: app.rating
+  pk: 13
+  fields: {movie: 23, user: 5, value: 8, created_at: 2026-04-16 20:30:00+00:00}
+- model: app.rating
+  pk: 14
+  fields: {movie: 30, user: 5, value: 10, created_at: 2026-04-17 11:00:00+00:00}
+- model: app.rating
+  pk: 15
+  fields: {movie: 30, user: 6, value: 9, created_at: 2026-04-17 12:00:00+00:00}
+- model: app.rating
+  pk: 16
+  fields: {movie: 41, user: 2, value: 10, created_at: 2026-04-18 20:00:00+00:00}
+- model: app.rating
+  pk: 17
+  fields: {movie: 41, user: 6, value: 10, created_at: 2026-04-19 14:20:00+00:00}
+- model: app.rating
+  pk: 18
+  fields: {movie: 41, user: 3, value: 9, created_at: 2026-04-19 15:00:00+00:00}
+- model: app.rating
+  pk: 19
+  fields: {movie: 48, user: 3, value: 9, created_at: 2026-04-20 23:55:00+00:00}
+- model: app.rating
+  pk: 20
+  fields: {movie: 48, user: 4, value: 8, created_at: 2026-04-21 09:00:00+00:00}
+- model: app.rating
+  pk: 21
+  fields: {movie: 50, user: 4, value: 10, created_at: 2026-04-21 17:00:00+00:00}
+- model: app.rating
+  pk: 22
+  fields: {movie: 50, user: 2, value: 8, created_at: 2026-04-21 18:00:00+00:00}
+- model: app.rating
+  pk: 23
+  fields: {movie: 60, user: 5, value: 10, created_at: 2026-04-22 19:30:00+00:00}
+- model: app.rating
+  pk: 24
+  fields: {movie: 60, user: 2, value: 10, created_at: 2026-04-22 20:00:00+00:00}
+- model: app.rating
+  pk: 25
+  fields: {movie: 60, user: 4, value: 9, created_at: 2026-04-22 21:00:00+00:00}
+- model: app.rating
+  pk: 26
+  fields: {movie: 62, user: 2, value: 10, created_at: 2026-04-23 10:00:00+00:00}
+- model: app.rating
+  pk: 27
+  fields: {movie: 62, user: 6, value: 9, created_at: 2026-04-23 11:00:00+00:00}
+- model: app.rating
+  pk: 28
+  fields: {movie: 63, user: 6, value: 9, created_at: 2026-04-23 12:00:00+00:00}
+- model: app.rating
+  pk: 29
+  fields: {movie: 65, user: 6, value: 10, created_at: 2026-04-24 21:15:00+00:00}
+- model: app.rating
+  pk: 30
+  fields: {movie: 65, user: 3, value: 10, created_at: 2026-04-24 22:00:00+00:00}
+- model: app.rating
+  pk: 31
+  fields: {movie: 66, user: 4, value: 10, created_at: 2026-04-25 18:00:00+00:00}
+- model: app.rating
+  pk: 32
+  fields: {movie: 66, user: 5, value: 9, created_at: 2026-04-25 19:00:00+00:00}
+- model: app.rating
+  pk: 33
+  fields: {movie: 67, user: 3, value: 10, created_at: 2026-04-26 12:30:00+00:00}
+- model: app.rating
+  pk: 34
+  fields: {movie: 67, user: 5, value: 9, created_at: 2026-04-26 14:00:00+00:00}
+- model: app.rating
+  pk: 35
+  fields: {movie: 68, user: 5, value: 10, created_at: 2026-04-27 22:00:00+00:00}
+- model: app.rating
+  pk: 36
+  fields: {movie: 68, user: 2, value: 9, created_at: 2026-04-27 23:00:00+00:00}
+- model: app.rating
+  pk: 37
+  fields: {movie: 71, user: 6, value: 10, created_at: 2026-04-28 23:30:00+00:00}
+- model: app.rating
+  pk: 38
+  fields: {movie: 71, user: 2, value: 9, created_at: 2026-04-29 09:00:00+00:00}
+- model: app.rating
+  pk: 39
+  fields: {movie: 72, user: 2, value: 9, created_at: 2026-04-29 20:00:00+00:00}
+- model: app.rating
+  pk: 40
+  fields: {movie: 72, user: 3, value: 8, created_at: 2026-04-29 21:00:00+00:00}
+- model: app.rating
+  pk: 41
+  fields: {movie: 75, user: 4, value: 10, created_at: 2026-04-30 16:00:00+00:00}
+- model: app.rating
+  pk: 42
+  fields: {movie: 75, user: 6, value: 9, created_at: 2026-04-30 17:00:00+00:00}
+- model: app.rating
+  pk: 43
+  fields: {movie: 76, user: 3, value: 10, created_at: 2026-05-01 19:00:00+00:00}
+- model: app.rating
+  pk: 44
+  fields: {movie: 76, user: 2, value: 10, created_at: 2026-05-01 20:00:00+00:00}
+- model: app.rating
+  pk: 45
+  fields: {movie: 77, user: 5, value: 9, created_at: 2026-05-02 21:00:00+00:00}
+- model: app.rating
+  pk: 46
+  fields: {movie: 78, user: 6, value: 10, created_at: 2026-05-03 14:00:00+00:00}
+- model: app.rating
+  pk: 47
+  fields: {movie: 79, user: 2, value: 9, created_at: 2026-05-04 23:00:00+00:00}
+- model: app.rating
+  pk: 48
+  fields: {movie: 3, user: 6, value: 9, created_at: 2026-05-05 18:00:00+00:00}
+- model: app.rating
+  pk: 49
+  fields: {movie: 8, user: 4, value: 9, created_at: 2026-05-06 21:00:00+00:00}
+- model: app.rating
+  pk: 50
+  fields: {movie: 26, user: 5, value: 9, created_at: 2026-05-07 11:00:00+00:00}
+- model: app.rating
+  pk: 51
+  fields: {movie: 29, user: 3, value: 9, created_at: 2026-05-08 13:00:00+00:00}
+- model: app.rating
+  pk: 52
+  fields: {movie: 80, user: 2, value: 8, created_at: 2026-05-09 22:30:00+00:00}
+- model: app.rating
+  pk: 53
+  fields: {movie: 4, user: 3, value: 8, created_at: 2026-05-09 23:00:00+00:00}
+- model: app.rating
+  pk: 54
+  fields: {movie: 6, user: 4, value: 9, created_at: 2026-05-10 09:00:00+00:00}
+- model: app.rating
+  pk: 55
+  fields: {movie: 9, user: 5, value: 8, created_at: 2026-05-10 12:00:00+00:00}
+- model: app.rating
+  pk: 56
+  fields: {movie: 11, user: 2, value: 9, created_at: 2026-05-10 14:00:00+00:00}
+- model: app.rating
+  pk: 57
+  fields: {movie: 35, user: 6, value: 7, created_at: 2026-05-10 16:00:00+00:00}
+- model: app.rating
+  pk: 58
+  fields: {movie: 37, user: 3, value: 7, created_at: 2026-05-10 18:00:00+00:00}
+- model: app.rating
+  pk: 59
+  fields: {movie: 39, user: 5, value: 8, created_at: 2026-05-11 09:00:00+00:00}
+- model: app.rating
+  pk: 60
+  fields: {movie: 52, user: 4, value: 10, created_at: 2026-05-11 12:00:00+00:00}

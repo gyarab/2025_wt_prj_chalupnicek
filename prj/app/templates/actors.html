@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Herci{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Herci a herečky</h1>
+
+<form method="get" class="filter-bar" style="grid-template-columns: 1fr auto;">
+    <div>
+        <label for="q">Hledat jméno</label>
+        <input type="text" id="q" name="q" value="{{ q }}" placeholder="např. Anna Geislerová…">
+    </div>
+    <div class="filter-actions">
+        <button type="submit" class="btn">Filtrovat</button>
+        <a href="{% url 'actors' %}" class="btn secondary">Reset</a>
+    </div>
+</form>
+
+<p class="muted">Nalezeno {{ actors|length }} herců</p>
+
+<div class="people-grid">
+    {% for a in actors %}
+        <a href="{% url 'actor_detail' a.id %}" class="person-card">
+            <div class="person-photo" style="{% if a.photo_url %}background-image:url('{{ a.photo_url }}');{% endif %}"></div>
+            <div class="person-info">
+                <div class="person-name">{{ a.name }}</div>
+                <div class="person-meta">
+                    {% if a.birth_year %}*{{ a.birth_year }}{% endif %}
+                    {% if a.nationality %} · {{ a.nationality }}{% endif %}
+                </div>
+            </div>
+        </a>
+    {% empty %}
+        <div class="empty-state"><p>Nic se nenašlo.</p></div>
+    {% endfor %}
+</div>
+{% endblock %}

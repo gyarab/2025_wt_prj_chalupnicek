@@ -1,0 +1,65 @@
+# Žánry
+- model: app.genre
+  pk: 1
+  fields:
+    name: Drama
+- model: app.genre
+  pk: 2
+  fields:
+    name: Komedie
+- model: app.genre
+  pk: 3
+  fields:
+    name: Sci-fi
+- model: app.genre
+  pk: 4
+  fields:
+    name: Thriller
+- model: app.genre
+  pk: 5
+  fields:
+    name: Akční
+- model: app.genre
+  pk: 6
+  fields:
+    name: Krimi
+- model: app.genre
+  pk: 7
+  fields:
+    name: Romantický
+- model: app.genre
+  pk: 8
+  fields:
+    name: Horor
+- model: app.genre
+  pk: 9
+  fields:
+    name: Historický
+- model: app.genre
+  pk: 10
+  fields:
+    name: Fantasy
+- model: app.genre
+  pk: 11
+  fields:
+    name: Pohádka
+- model: app.genre
+  pk: 12
+  fields:
+    name: Válečný
+- model: app.genre
+  pk: 13
+  fields:
+    name: Mysteriózní
+- model: app.genre
+  pk: 14
+  fields:
+    name: Hudební
+- model: app.genre
+  pk: 15
+  fields:
+    name: Životopisný
+- model: app.genre
+  pk: 16
+  fields:
+    name: Animovaný

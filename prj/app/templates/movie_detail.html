@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ movie.title }}{% endblock %}
+
+{% block content %}
+<p><a href="{% url 'home' %}">← zpět na filmy</a></p>
+
+<div class="detail-grid">
+    <div class="detail-poster">
+        {% if movie.poster_url %}
+            <img src="{{ movie.poster_url }}" alt="{{ movie.title }}">
+        {% else %}
+            <div style="aspect-ratio:2/3;background:#d8dde3;border-radius:10px;"></div>
+        {% endif %}
+    </div>
+
+    <div class="detail-body">
+        <h1>{{ movie.title }}</h1>
+        <div class="subtitle">
+            {% if movie.original_title %}{{ movie.original_title }} · {% endif %}
+            {% if movie.year %}{{ movie.year }}{% endif %}
+            {% if movie.country %} · {{ movie.country }}{% endif %}
+            {% if movie.duration_minutes %} · {{ movie.duration_minutes }} min{% endif %}
+        </div>
+
+        <div class="chips">
+            {% for g in movie.genres.all %}
+                <a class="chip chip-link" href="{% url 'home' %}?genre={{ g.id }}">{{ g.name }}</a>
+            {% endfor %}
+        </div>
+
+        {% if avg_rating %}
+            <p class="rating-stars">★ {{ avg_rating|floatformat:1 }} <span class="muted">/ 10 ({{ ratings_count }} hodnocení)</span></p>
+        {% else %}
+            <p class="muted">Zatím bez hodnocení.</p>
+        {% endif %}
+
+        {% if movie.director %}
+            <p><strong>Režie:</strong>
+                <a href="{% url 'director_detail' movie.director.id %}">{{ movie.director.name }}</a>
+            </p>
+        {% endif %}
+
+        {% if movie.description %}
+            <p>{{ movie.description }}</p>
+        {% endif %}
+
+        <div class="action-row">
+            {% if user.is_authenticated %}
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#rating-modal">
+                    {% if user_rating %}★ Změnit hodnocení{% else %}★ Ohodnotit{% endif %}
+                </button>
+                <button type="button" class="btn secondary" data-bs-toggle="modal" data-bs-target="#comment-modal">
+                    💬 Přidat komentář
+                </button>
+            {% else %}
+                <a href="{% url 'login' %}?next={{ request.path }}" class="btn">Přihlas se a ohodnoť film</a>
+            {% endif %}
+        </div>
+
+        {% if user_rating %}
+            <p class="muted" style="margin-top:8px;">
+                Tvoje hodnocení: <span class="your-rating-badge">★ {{ user_rating.value }}/10</span>
+            </p>
+        {% endif %}
+    </div>
+</div>
+
+{% if movie.actors.all %}
+<section class="detail-section">
+    <h2>Obsazení</h2>
+    <div class="cast">
+        {% for a in movie.actors.all %}
+            <a class="person" href="{% url 'actor_detail' a.id %}">
+                {% if a.photo_url %}
+                    <img src="{{ a.photo_url }}" alt="{{ a.name }}">
+                {% else %}
+                    <img alt="">
+                {% endif %}
+                <div class="name">{{ a.name }}</div>
+            </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<section class="detail-section">
+    <h2>Komentáře ({{ comments|length }})</h2>
+    {% if comments %}
+        <ul class="comments">
+            {% for c in comments %}
+                <li class="comment">
+                    <div class="meta"><span class="author">{{ c.user.username }}</span> · {{ c.created_at|date:"j. n. Y H:i" }}</div>
+                    <div>{{ c.text|linebreaksbr }}</div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="muted">Zatím tu žádné komentáře nejsou. Buď první!</p>
+    {% endif %}
+</section>
+
+{% if user.is_authenticated %}
+{# --- Modal: hodnocení --- #}
+<div class="modal fade" id="rating-modal" tabindex="-1" aria-labelledby="rating-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <form method="post" action="{% url 'rate_movie' movie.id %}">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="rating-modal-label">Ohodnoť film</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zavřít"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-3">
+                        {{ movie.title }}{% if movie.year %} ({{ movie.year }}){% endif %}
+                    </p>
+                    <label class="form-label">Tvoje hodnocení (1–10)</label>
+                    <div class="rating-buttons" role="radiogroup" aria-label="Hodnocení 1 až 10">
+                        {% for v in rating_values %}
+                            <input type="radio" class="btn-check" name="value" id="rating-{{ v }}"
+                                   value="{{ v }}"
+                                   {% if user_rating and user_rating.value == v %}checked{% endif %}
+                                   required>
+                            <label class="rating-pill" for="rating-{{ v }}">{{ v }}</label>
+                        {% endfor %}
+                    </div>
+                    <small class="text-muted d-block mt-2">Klepni na číslo. 1 = nejhorší, 10 = nejlepší.</small>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn secondary" data-bs-dismiss="modal">Zrušit</button>
+                    <button type="submit" class="btn">{% if user_rating %}Změnit{% else %}Uložit{% endif %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{# --- Modal: komentář --- #}
+<div class="modal fade" id="comment-modal" tabindex="-1" aria-labelledby="comment-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <form method="post" action="{% url 'comment_movie' movie.id %}">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="comment-modal-label">Přidej komentář</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zavřít"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-3">
+                        {{ movie.title }}{% if movie.year %} ({{ movie.year }}){% endif %}
+                    </p>
+                    <label for="id_text" class="form-label">Komentář</label>
+                    <textarea name="text" id="id_text" rows="5" class="form-control"
+                              placeholder="Napiš svůj názor na film…" required></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn secondary" data-bs-dismiss="modal">Zrušit</button>
+                    <button type="submit" class="btn">Odeslat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

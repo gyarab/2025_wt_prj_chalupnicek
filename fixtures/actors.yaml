@@ -1,0 +1,465 @@
+# Herci
+- model: app.actor
+  pk: 1
+  fields:
+    name: Zdeněk Svěrák
+    birth_year: 1936
+    nationality: Česko
+    bio: "Český herec, scenárista, spisovatel a textař. Otec režiséra Jana Svěráka. Spoluzakladatel Cimrmanovského divadla, scenárista a hlavní herec filmu Kolja."
+    photo_url: https://picsum.photos/seed/actor-zdenek-sverak/400/400
+- model: app.actor
+  pk: 2
+  fields:
+    name: Miroslav Donutil
+    birth_year: 1951
+    nationality: Česko
+    bio: "Český divadelní a filmový herec. Bývalý člen Divadla Husa na provázku, dlouholetý člen Národního divadla. Známý z filmů Pelíšky, Vesničko má středisková."
+    photo_url: https://picsum.photos/seed/actor-donutil/400/400
+- model: app.actor
+  pk: 3
+  fields:
+    name: Bolek Polívka
+    birth_year: 1949
+    nationality: Česko
+    bio: "Český herec, komik, mim a dramatik. Zakladatel Divadla Bolka Polívky v Brně. Herecky proslul ve filmech Pelíšky, Musíme si pomáhat nebo Dědictví aneb Kurvaseneříká."
+    photo_url: https://picsum.photos/seed/actor-bolek-polivka/400/400
+- model: app.actor
+  pk: 4
+  fields:
+    name: Ivan Trojan
+    birth_year: 1964
+    nationality: Česko
+    bio: "Český divadelní a filmový herec, jeden z nejvýznamnějších herců své generace. Bratr režiséra Ondřeje Trojana. Stálý člen Dejvického divadla."
+    photo_url: https://picsum.photos/seed/actor-ivan-trojan/400/400
+- model: app.actor
+  pk: 5
+  fields:
+    name: Jiří Macháček
+    birth_year: 1966
+    nationality: Česko
+    bio: "Český herec a zpěvák kapely Mig 21. Charakteristický civilním, vnitřně intenzivním herectvím. Hlavní role v Samotářích, Toman."
+    photo_url: https://picsum.photos/seed/actor-machacek/400/400
+- model: app.actor
+  pk: 6
+  fields:
+    name: Ondřej Vetchý
+    birth_year: 1962
+    nationality: Česko
+    bio: "Český herec, filmový i divadelní, výrazná postava české kinematografie 90. let a 21. století. Známý z filmů Tmavomodrý svět nebo Knoflíkáři."
+    photo_url: https://picsum.photos/seed/actor-vetchy/400/400
+- model: app.actor
+  pk: 7
+  fields:
+    name: Karel Roden
+    birth_year: 1962
+    nationality: Česko
+    bio: "Český herec s mezinárodní kariérou. Účinkoval v hollywoodských produkcích (Hellboy, 15 minut slávy), ale i v českých dramatech (Lidice, Habermannův mlýn)."
+    photo_url: https://picsum.photos/seed/actor-roden/400/400
+- model: app.actor
+  pk: 8
+  fields:
+    name: Tatiana Vilhelmová
+    birth_year: 1978
+    nationality: Česko
+    bio: "Česká herečka, jedna z nejoblíbenějších tváří současného českého filmu. Známá ze Samotářů, Účastníků zájezdu nebo seriálu Bohéma."
+    photo_url: https://picsum.photos/seed/actor-vilhelmova/400/400
+- model: app.actor
+  pk: 9
+  fields:
+    name: Anna Geislerová
+    birth_year: 1976
+    nationality: Česko
+    bio: "Česká filmová herečka a modelka. Trojnásobná držitelka Českého lva. Hrála v Návratu idiota, Účastníci zájezdu, Občanský průkaz."
+    photo_url: https://picsum.photos/seed/actor-geislerova/400/400
+- model: app.actor
+  pk: 10
+  fields:
+    name: Marek Vašut
+    birth_year: 1960
+    nationality: Česko
+    bio: "Český herec a moderátor. Známý z mnoha českých filmů 90. let, hostoval i v zahraničních produkcích (Mission: Impossible)."
+    photo_url: https://picsum.photos/seed/actor-vasut/400/400
+- model: app.actor
+  pk: 11
+  fields:
+    name: Vladimír Menšík
+    birth_year: 1929
+    nationality: Česko
+    bio: "Legendární český herec a bavič. Jeden z nejvýraznějších komediálních talentů české kinematografie. Účinkoval v Marečku, podejte mi pero!"
+    photo_url: https://picsum.photos/seed/actor-mensik/400/400
+- model: app.actor
+  pk: 12
+  fields:
+    name: Libuše Šafránková
+    birth_year: 1953
+    nationality: Česko
+    bio: "Česká herečka, ikona Popelky z pohádky Tři oříšky pro Popelku. Hrála také ve filmech Kolja, Vrchní, prchni! nebo Vratné lahve."
+    photo_url: https://picsum.photos/seed/actor-safrankova/400/400
+- model: app.actor
+  pk: 13
+  fields:
+    name: Václav Neckář
+    birth_year: 1943
+    nationality: Česko
+    bio: "Český zpěvák a herec. Mladý milovník Miloš v Ostře sledovaných vlacích Jiřího Menzela, později populární zpěvák skupiny Bacily."
+    photo_url: https://picsum.photos/seed/actor-neckar/400/400
+- model: app.actor
+  pk: 14
+  fields:
+    name: Magda Vášáryová
+    birth_year: 1948
+    nationality: Slovensko
+    bio: "Slovenská herečka, diplomatka a politička. Hlavní role v Markétě Lazarové Františka Vláčila a v Postřižinách Jiřího Menzela."
+    photo_url: https://picsum.photos/seed/actor-vasaryova/400/400
+- model: app.actor
+  pk: 15
+  fields:
+    name: Iva Janžurová
+    birth_year: 1941
+    nationality: Česko
+    bio: "Česká herečka, dlouholetá členka činohry Národního divadla. Komediální i dramatické role v dílech Petrolejové lampy, Adéla ještě nevečeřela."
+    photo_url: https://picsum.photos/seed/actor-janzurova/400/400
+- model: app.actor
+  pk: 16
+  fields:
+    name: Rudolf Hrušínský
+    birth_year: 1920
+    nationality: Česko
+    bio: "Jeden z největších českých herců 20. století. Nezapomenutelný v rolích pana Kopfrkingla ve Spalovači mrtvol a Švejka."
+    photo_url: https://picsum.photos/seed/actor-hrusinsky/400/400
+- model: app.actor
+  pk: 17
+  fields:
+    name: Jiří Sovák
+    birth_year: 1920
+    nationality: Česko
+    bio: "Česká herecká legenda, mistr komediální drobnokresby. Hlavní role v Marečku, podejte mi pero! a v Postřižinách."
+    photo_url: https://picsum.photos/seed/actor-sovak/400/400
+- model: app.actor
+  pk: 18
+  fields:
+    name: Karel Fiala
+    birth_year: 1925
+    nationality: Česko
+    bio: "Český herec a operetní zpěvák. Slávu mu přinesla titulní role Limonádového Joea Oldřicha Lipského."
+    photo_url: https://picsum.photos/seed/actor-fiala/400/400
+- model: app.actor
+  pk: 19
+  fields:
+    name: Josef Abrhám
+    birth_year: 1939
+    nationality: Česko
+    bio: "Český herec, elegantní a sofistikovaný typ. Hlavní role ve filmu Vrchní, prchni!, hrál i ve Skřiváncích na niti a S tebou mě baví svět."
+    photo_url: https://picsum.photos/seed/actor-abrham/400/400
+- model: app.actor
+  pk: 20
+  fields:
+    name: Krištof Hádek
+    birth_year: 1982
+    nationality: Česko
+    bio: "Český herec, který se proslavil již jako dítě ve filmu Tmavomodrý svět. Dnes patří mezi přední herce střední generace (Bobule, Pelíšky)."
+    photo_url: https://picsum.photos/seed/actor-hadek/400/400
+- model: app.actor
+  pk: 21
+  fields:
+    name: Jaromír Nohavica
+    birth_year: 1953
+    nationality: Česko
+    bio: "Český písničkář a textař. Jeho píseň Rok ďábla dala název i hlavní roli stejnojmennému filmu Petra Zelenky."
+    photo_url: https://picsum.photos/seed/actor-nohavica/400/400
+- model: app.actor
+  pk: 22
+  fields:
+    name: Anatolij Solonicyn
+    birth_year: 1934
+    nationality: SSSR
+    bio: "Sovětský herec, kmenový spolupracovník Andreje Tarkovského. Hrál hlavní role v Andreji Rublevovi, Solarisu, Zrcadle a Stalkerovi."
+    photo_url: https://picsum.photos/seed/actor-solonicyn/400/400
+- model: app.actor
+  pk: 23
+  fields:
+    name: John Travolta
+    birth_year: 1954
+    nationality: USA
+    bio: "Americký herec, který se proslavil ve filmech Pomáda a Horečka sobotní noci. Kariéru oživil rolí Vincenta Vegy v Pulp Fiction."
+    photo_url: https://picsum.photos/seed/actor-travolta/400/400
+- model: app.actor
+  pk: 24
+  fields:
+    name: Uma Thurman
+    birth_year: 1970
+    nationality: USA
+    bio: "Americká herečka, múza Quentina Tarantina. Ikonická role Mie Wallaceové v Pulp Fiction a Nevěsty v Kill Billovi."
+    photo_url: https://picsum.photos/seed/actor-thurman/400/400
+- model: app.actor
+  pk: 25
+  fields:
+    name: Samuel L. Jackson
+    birth_year: 1948
+    nationality: USA
+    bio: "Jeden z nejúspěšnějších afroamerických herců. Jules Winnfield z Pulp Fiction, Mace Windu ze Star Wars a Nick Fury z Marvelu."
+    photo_url: https://picsum.photos/seed/actor-jackson/400/400
+- model: app.actor
+  pk: 26
+  fields:
+    name: Harvey Keitel
+    birth_year: 1939
+    nationality: USA
+    bio: "Americký herec spojený s nezávislým filmem 70. let. Spolupracoval s Martinem Scorsesem a Quentinem Tarantinem (Reservoir Dogs, Pulp Fiction)."
+    photo_url: https://picsum.photos/seed/actor-keitel/400/400
+- model: app.actor
+  pk: 27
+  fields:
+    name: Brad Pitt
+    birth_year: 1963
+    nationality: USA
+    bio: "Americký herec a producent, jeden z největších filmových hvězd současnosti. Drží Oscara za vedlejší roli ve filmu Tenkrát v Hollywoodu."
+    photo_url: https://picsum.photos/seed/actor-pitt/400/400
+- model: app.actor
+  pk: 28
+  fields:
+    name: Robert De Niro
+    birth_year: 1943
+    nationality: USA
+    bio: "Americký herec, dvojnásobný držitel Oscara. Klíčová postava metody herectví, kmenový herec Martina Scorseseho (Taxikář, Zuřící býk, Mafiáni)."
+    photo_url: https://picsum.photos/seed/actor-deniro/400/400
+- model: app.actor
+  pk: 29
+  fields:
+    name: Clint Eastwood
+    birth_year: 1930
+    nationality: USA
+    bio: "Americký herec a režisér. Známý jako Muž bez jména v dolarové trilogii Sergia Leoneho a jako inspektor Harry Callahan."
+    photo_url: https://picsum.photos/seed/actor-eastwood/400/400
+- model: app.actor
+  pk: 30
+  fields:
+    name: Henry Fonda
+    birth_year: 1905
+    nationality: USA
+    bio: "Americká herecká legenda zlaté éry Hollywoodu. Otec herečky Jane Fondové. Hlavní role v 12 rozhněvaných mužích a Tenkrát na západě."
+    photo_url: https://picsum.photos/seed/actor-fonda/400/400
+- model: app.actor
+  pk: 31
+  fields:
+    name: Naomi Watts
+    birth_year: 1968
+    nationality: Velká Británie
+    bio: "Britsko-australská herečka. Proslavila ji dvojrole v Mulholland Drive Davida Lynche, později hrála v King Kongovi a 21 gramech."
+    photo_url: https://picsum.photos/seed/actor-watts/400/400
+- model: app.actor
+  pk: 32
+  fields:
+    name: Isabella Rossellini
+    birth_year: 1952
+    nationality: Itálie
+    bio: "Italská herečka a modelka, dcera režiséra Roberta Rosselliniho a herečky Ingrid Bergman. Známá z filmu Modrý samet."
+    photo_url: https://picsum.photos/seed/actor-rossellini/400/400
+- model: app.actor
+  pk: 33
+  fields:
+    name: Toshiro Mifune
+    birth_year: 1920
+    nationality: Japonsko
+    bio: "Japonský herec, kmenový spolupracovník Akiry Kurosawy. Účinkoval v šestnácti jeho filmech, mj. v Sedmi samurajích a Rašómonu."
+    photo_url: https://picsum.photos/seed/actor-mifune/400/400
+- model: app.actor
+  pk: 34
+  fields:
+    name: Max von Sydow
+    birth_year: 1929
+    nationality: Švédsko
+    bio: "Švédský herec s mezinárodní kariérou. Kmenový herec Ingmara Bergmana (Sedmá pečeť), později i Hollywoodu (Vymítač ďábla)."
+    photo_url: https://picsum.photos/seed/actor-vonsydow/400/400
+- model: app.actor
+  pk: 35
+  fields:
+    name: Marcello Mastroianni
+    birth_year: 1924
+    nationality: Itálie
+    bio: "Italská filmová ikona. Múza Federica Felliniho a italského filmu obecně. Hlavní role v Sladkém životě a 8 ½."
+    photo_url: https://picsum.photos/seed/actor-mastroianni/400/400
+- model: app.actor
+  pk: 36
+  fields:
+    name: Anouk Aimée
+    birth_year: 1932
+    nationality: Francie
+    bio: "Francouzská herečka, symbol evropského filmu 60. let. Role ve filmech Sladký život, 8 ½ a Muž a žena."
+    photo_url: https://picsum.photos/seed/actor-aimee/400/400
+- model: app.actor
+  pk: 37
+  fields:
+    name: Marlon Brando
+    birth_year: 1924
+    nationality: USA
+    bio: "Jeden z nejvlivnějších herců 20. století, průkopník metodického herectví. Don Vito Corleone v Kmotrovi a plukovník Kurtz v Apokalypse."
+    photo_url: https://picsum.photos/seed/actor-brando/400/400
+- model: app.actor
+  pk: 38
+  fields:
+    name: Al Pacino
+    birth_year: 1940
+    nationality: USA
+    bio: "Americký herec, Michael Corleone z Kmotra. Držitel Oscara za film Vůně ženy. Pamětihodné role v Zjizvené tváři a Spravedlivém boji."
+    photo_url: https://picsum.photos/seed/actor-pacino/400/400
+- model: app.actor
+  pk: 39
+  fields:
+    name: Martin Sheen
+    birth_year: 1940
+    nationality: USA
+    bio: "Americký herec irského původu, otec Charlieho a Emilia. Hlavní role kapitána Willarda v Apokalypse Francise Coppoly."
+    photo_url: https://picsum.photos/seed/actor-sheen/400/400
+- model: app.actor
+  pk: 40
+  fields:
+    name: Joe Pesci
+    birth_year: 1943
+    nationality: USA
+    bio: "Americký herec italského původu, kmenový spolupracovník Martina Scorseseho. Oscar za vedlejší roli v Mafiánech."
+    photo_url: https://picsum.photos/seed/actor-pesci/400/400
+- model: app.actor
+  pk: 41
+  fields:
+    name: Liam Neeson
+    birth_year: 1952
+    nationality: Severní Irsko
+    bio: "Irský herec proslulý rolí Oskara Schindlera ve Schindlerově seznamu, v posledních letech akčními filmy ze série 96 hodin."
+    photo_url: https://picsum.photos/seed/actor-neeson/400/400
+- model: app.actor
+  pk: 42
+  fields:
+    name: Ralph Fiennes
+    birth_year: 1962
+    nationality: Velká Británie
+    bio: "Britský herec, ztvárnil Amona Götha ve Schindlerově seznamu, hlavní roli v Grandhotelu Budapešť a lorda Voldemorta v Harrym Potterovi."
+    photo_url: https://picsum.photos/seed/actor-fiennes/400/400
+- model: app.actor
+  pk: 43
+  fields:
+    name: Tom Hanks
+    birth_year: 1956
+    nationality: USA
+    bio: "Americký herec, jedna z nejoblíbenějších filmových hvězd. Dvojnásobný držitel Oscara (Philadelphia, Forrest Gump)."
+    photo_url: https://picsum.photos/seed/actor-hanks/400/400
+- model: app.actor
+  pk: 44
+  fields:
+    name: Audrey Tautou
+    birth_year: 1976
+    nationality: Francie
+    bio: "Francouzská herečka, kterou proslavila titulní role v Amélii z Montmartru."
+    photo_url: https://picsum.photos/seed/actor-tautou/400/400
+- model: app.actor
+  pk: 45
+  fields:
+    name: Jim Carrey
+    birth_year: 1962
+    nationality: Kanada
+    bio: "Kanadsko-americký herec, mistr fyzické komedie. Překvapil dramatickými rolemi ve filmech Truman Show a Věčný svit neposkvrněné mysli."
+    photo_url: https://picsum.photos/seed/actor-carrey/400/400
+- model: app.actor
+  pk: 46
+  fields:
+    name: Kate Winslet
+    birth_year: 1975
+    nationality: Velká Británie
+    bio: "Britská herečka, držitelka Oscara za roli ve filmu Předčítač. Hrála také v Titanicu a Věčném svitu neposkvrněné mysli."
+    photo_url: https://picsum.photos/seed/actor-winslet/400/400
+- model: app.actor
+  pk: 47
+  fields:
+    name: Bill Murray
+    birth_year: 1950
+    nationality: USA
+    bio: "Americký herec a komik. Známý komediálními rolemi v Krotitelích duchů a Na Hromnice o den více, ale i dramatickým výkonem ve Ztraceno v překladu."
+    photo_url: https://picsum.photos/seed/actor-murray/400/400
+- model: app.actor
+  pk: 48
+  fields:
+    name: Scarlett Johansson
+    birth_year: 1984
+    nationality: USA
+    bio: "Americká herečka, jedna z nejlépe placených hvězd současnosti. Role v Ztraceno v překladu, Pan a paní Smithovi a jako Black Widow v Marvelu."
+    photo_url: https://picsum.photos/seed/actor-johansson/400/400
+- model: app.actor
+  pk: 49
+  fields:
+    name: Jake Gyllenhaal
+    birth_year: 1980
+    nationality: USA
+    bio: "Americký herec. Proslavil ho titulní role v Donnie Darko, dále hrál v Zkrocené hoře a Slídilovi."
+    photo_url: https://picsum.photos/seed/actor-gyllenhaal/400/400
+- model: app.actor
+  pk: 50
+  fields:
+    name: Miles Teller
+    birth_year: 1987
+    nationality: USA
+    bio: "Americký herec, který se proslavil rolí ambiciózního bubeníka ve Whiplashi Damiena Chazelleho."
+    photo_url: https://picsum.photos/seed/actor-teller/400/400
+- model: app.actor
+  pk: 51
+  fields:
+    name: Ryan Gosling
+    birth_year: 1980
+    nationality: Kanada
+    bio: "Kanadský herec a hudebník. Hrál ve Zápisníku jedné lásky a v La La Land (Zlatý glóbus za roli Sebastiana)."
+    photo_url: https://picsum.photos/seed/actor-gosling/400/400
+- model: app.actor
+  pk: 52
+  fields:
+    name: Emma Stone
+    birth_year: 1988
+    nationality: USA
+    bio: "Americká herečka, držitelka Oscara za roli Mie v La La Land a další za film Chudáčci."
+    photo_url: https://picsum.photos/seed/actor-stone/400/400
+- model: app.actor
+  pk: 53
+  fields:
+    name: Michael Keaton
+    birth_year: 1951
+    nationality: USA
+    bio: "Americký herec, ikonický Batman z filmů Tima Burtona a Riggan ve filmu Birdman, za nějž získal Zlatý glóbus."
+    photo_url: https://picsum.photos/seed/actor-keaton/400/400
+- model: app.actor
+  pk: 54
+  fields:
+    name: Song Kang-ho
+    birth_year: 1967
+    nationality: Jižní Korea
+    bio: "Jihokorejský herec, kmenový spolupracovník Bong Joon-hoa. Hrál hlavní roli v oscarovém Parazitovi."
+    photo_url: https://picsum.photos/seed/actor-song/400/400
+- model: app.actor
+  pk: 55
+  fields:
+    name: Choi Min-sik
+    birth_year: 1962
+    nationality: Jižní Korea
+    bio: "Jihokorejský herec, hlavní role v kultovním thrilleru Old Boy Park Chan-wooka."
+    photo_url: https://picsum.photos/seed/actor-choi/400/400
+- model: app.actor
+  pk: 56
+  fields:
+    name: Ewan McGregor
+    birth_year: 1971
+    nationality: Velká Británie
+    bio: "Skotský herec. Hlavní role v Trainspottingu, v Star Wars prequelech jako Obi-Wan Kenobi a v Moulin Rouge."
+    photo_url: https://picsum.photos/seed/actor-mcgregor/400/400
+- model: app.actor
+  pk: 57
+  fields:
+    name: Robert Pattinson
+    birth_year: 1986
+    nationality: Velká Británie
+    bio: "Britský herec, proslavil se sérií Twilight, po ní se přesunul k autorskému filmu (Maják, Tenet, The Batman)."
+    photo_url: https://picsum.photos/seed/actor-pattinson/400/400
+- model: app.actor
+  pk: 58
+  fields:
+    name: Roberto Benigni
+    birth_year: 1952
+    nationality: Itálie
+    bio: "Italský herec, režisér a komik. Za hlavní roli ve vlastním filmu Život je krásný získal Oscara."
+    photo_url: https://picsum.photos/seed/actor-benigni/400/400

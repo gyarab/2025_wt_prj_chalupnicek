@@ -1,0 +1,211 @@
+# Demo komentáře k filmům
+- model: app.comment
+  pk: 1
+  fields:
+    movie: 1
+    user: 2
+    text: "Kolja je jeden z mála filmů, kde se nestydím přiznat, že jsem brečel. Svěrákovi prostě umí."
+    created_at: 2026-04-10 18:30:00+00:00
+- model: app.comment
+  pk: 2
+  fields:
+    movie: 1
+    user: 3
+    text: "Bezpochyby zasloužený Oscar. Kombinace humoru a melancholie, jakou žádný hollywoodský film neudělá."
+    created_at: 2026-04-11 09:15:00+00:00
+- model: app.comment
+  pk: 3
+  fields:
+    movie: 5
+    user: 4
+    text: "Pelíšky jsou esence českého humoru. Po každém zhlédnutí najdu novou hlášku."
+    created_at: 2026-04-12 21:00:00+00:00
+- model: app.comment
+  pk: 4
+  fields:
+    movie: 5
+    user: 2
+    text: "Polívka s Donutilem na ekrane jsou nezapomenutelní. A Krištof Hádek jako dospívající Michal je super objev."
+    created_at: 2026-04-13 12:45:00+00:00
+- model: app.comment
+  pk: 5
+  fields:
+    movie: 12
+    user: 5
+    text: "Po x-té zhlédnutí stále nezapomenutelný. Hrabalovský humor v menzelovském podání nemá konkurenci."
+    created_at: 2026-04-14 08:00:00+00:00
+- model: app.comment
+  pk: 6
+  fields:
+    movie: 18
+    user: 3
+    text: "Hrušínský v roli Kopfrkingla nahání hrůzu i po půl století. Mistrovský kousek."
+    created_at: 2026-04-15 22:10:00+00:00
+- model: app.comment
+  pk: 7
+  fields:
+    movie: 23
+    user: 4
+    text: "Vláčilův vizuální génius. Vyžaduje pozornost, ale odměnou je nezapomenutelný zážitek."
+    created_at: 2026-04-16 19:30:00+00:00
+- model: app.comment
+  pk: 8
+  fields:
+    movie: 30
+    user: 5
+    text: "Vánoce bez Popelky si neumím představit. Libuše Šafránková je věčná."
+    created_at: 2026-04-17 11:00:00+00:00
+- model: app.comment
+  pk: 9
+  fields:
+    movie: 41
+    user: 2
+    text: "Pulp Fiction prostě nestárne. Dialog mezi Vincentem a Julesem o quarter-pounderu zůstane v dějinách filmu napořád."
+    created_at: 2026-04-18 20:00:00+00:00
+- model: app.comment
+  pk: 10
+  fields:
+    movie: 41
+    user: 6
+    text: "Tarantino v nejlepší formě. Inteligentní, zábavné, brutálně cool."
+    created_at: 2026-04-19 14:20:00+00:00
+- model: app.comment
+  pk: 11
+  fields:
+    movie: 48
+    user: 3
+    text: "Mulholland Drive vyžaduje aspoň dvě zhlédnutí, aby člověk pochopil, že to nikdy nepochopí. A o to právě jde."
+    created_at: 2026-04-20 23:55:00+00:00
+- model: app.comment
+  pk: 12
+  fields:
+    movie: 50
+    user: 4
+    text: "Stalker je film, který se nedá vyprávět – musí se zažít. Tarkovskij je v něm na vrcholu."
+    created_at: 2026-04-21 17:00:00+00:00
+- model: app.comment
+  pk: 13
+  fields:
+    movie: 60
+    user: 5
+    text: "Kmotr je definicí epického filmu. Brando, Pacino, Coppola – co víc si přát."
+    created_at: 2026-04-22 19:30:00+00:00
+- model: app.comment
+  pk: 14
+  fields:
+    movie: 62
+    user: 2
+    text: "You talkin' to me? De Niro v této roli je nadlidský výkon. Scorsese ho dovedl na pokraj reality."
+    created_at: 2026-04-23 10:00:00+00:00
+- model: app.comment
+  pk: 15
+  fields:
+    movie: 65
+    user: 6
+    text: "Schindlerův seznam je jeden z nejtěžších a zároveň nejdůležitějších filmů, jaké kdy vznikly."
+    created_at: 2026-04-24 21:15:00+00:00
+- model: app.comment
+  pk: 16
+  fields:
+    movie: 66
+    user: 4
+    text: "Život je jak bonboniéra. Forrest Gump má srdce, smysl pro humor i historii v jednom. Klasika."
+    created_at: 2026-04-25 18:00:00+00:00
+- model: app.comment
+  pk: 17
+  fields:
+    movie: 67
+    user: 3
+    text: "Amélie je terapie v podobě filmu. Po jeho zhlédnutí mám vždy chuť dělat lidem dobré skutky."
+    created_at: 2026-04-26 12:30:00+00:00
+- model: app.comment
+  pk: 18
+  fields:
+    movie: 68
+    user: 5
+    text: "Věčný svit neposkvrněné mysli je nejvíc bolestivá romance, jakou jsem kdy viděla. Carrey překvapil."
+    created_at: 2026-04-27 22:00:00+00:00
+- model: app.comment
+  pk: 19
+  fields:
+    movie: 71
+    user: 6
+    text: "Whiplash mě nutil tlouct do volantu cestou domů z kina. Tahle energie!"
+    created_at: 2026-04-28 23:30:00+00:00
+- model: app.comment
+  pk: 20
+  fields:
+    movie: 72
+    user: 2
+    text: "La La Land mě dostalo svým otevřeným koncem. Hudba je krásná, ale ten epilog je síla."
+    created_at: 2026-04-29 20:00:00+00:00
+- model: app.comment
+  pk: 21
+  fields:
+    movie: 75
+    user: 4
+    text: "Život je krásný má nejen těžko stravitelnou závěrečnou pasáž, ale i obrovskou víru v lidskost."
+    created_at: 2026-04-30 16:00:00+00:00
+- model: app.comment
+  pk: 22
+  fields:
+    movie: 76
+    user: 3
+    text: "Parazit je naprosto geniální. Bong Joon-ho zaslouženě vyhrál Oscara."
+    created_at: 2026-05-01 19:00:00+00:00
+- model: app.comment
+  pk: 23
+  fields:
+    movie: 77
+    user: 5
+    text: "Old Boy je tak intenzivní, že po něm potřebuješ pauzu. Park Chan-wook je mistr."
+    created_at: 2026-05-02 21:00:00+00:00
+- model: app.comment
+  pk: 24
+  fields:
+    movie: 78
+    user: 6
+    text: "Wes Anderson v nejvybroušenější podobě. Každý záběr by si zasloužil rám."
+    created_at: 2026-05-03 14:00:00+00:00
+- model: app.comment
+  pk: 25
+  fields:
+    movie: 79
+    user: 2
+    text: "Trainspotting je generační film. McGregor i soundtrack jsou neopakovatelní."
+    created_at: 2026-05-04 23:00:00+00:00
+- model: app.comment
+  pk: 26
+  fields:
+    movie: 3
+    user: 6
+    text: "Tmavomodrý svět je vzpomínka na hrdiny, kterých si režim vůbec nevážil. Velký film."
+    created_at: 2026-05-05 18:00:00+00:00
+- model: app.comment
+  pk: 27
+  fields:
+    movie: 8
+    user: 4
+    text: "Samotáři jsou pro mě nejlepší český film 21. století. Skvělý scénář a hudba."
+    created_at: 2026-05-06 21:00:00+00:00
+- model: app.comment
+  pk: 28
+  fields:
+    movie: 26
+    user: 5
+    text: "Limonádový Joe je úžasná hříčka. Kombinace muzikálu, parodie a stylu, jaká nemá obdoby."
+    created_at: 2026-05-07 11:00:00+00:00
+- model: app.comment
+  pk: 29
+  fields:
+    movie: 29
+    user: 3
+    text: "Marečku, podejte mi pero! je nesmrtelný. Hlášky z něj se používají dodnes."
+    created_at: 2026-05-08 13:00:00+00:00
+- model: app.comment
+  pk: 30
+  fields:
+    movie: 80
+    user: 2
+    text: "Maják je hypnotický. Pattinson a Dafoe v černobílém šílenství."
+    created_at: 2026-05-09 22:30:00+00:00

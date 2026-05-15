@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Režiséři{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Režiséři</h1>
+
+<form method="get" class="filter-bar" style="grid-template-columns: 1fr auto;">
+    <div>
+        <label for="q">Hledat jméno</label>
+        <input type="text" id="q" name="q" value="{{ q }}" placeholder="např. Jan Svěrák…">
+    </div>
+    <div class="filter-actions">
+        <button type="submit" class="btn">Filtrovat</button>
+        <a href="{% url 'directors' %}" class="btn secondary">Reset</a>
+    </div>
+</form>
+
+<p class="muted">Nalezeno {{ directors|length }} režisérů</p>
+
+<div class="people-grid">
+    {% for d in directors %}
+        <a href="{% url 'director_detail' d.id %}" class="person-card">
+            <div class="person-photo" style="{% if d.photo_url %}background-image:url('{{ d.photo_url }}');{% endif %}"></div>
+            <div class="person-info">
+                <div class="person-name">{{ d.name }}</div>
+                <div class="person-meta">
+                    {% if d.birth_year %}*{{ d.birth_year }}{% endif %}
+                    {% if d.nationality %} · {{ d.nationality }}{% endif %}
+                </div>
+            </div>
+        </a>
+    {% empty %}
+        <div class="empty-state"><p>Nic se nenašlo.</p></div>
+    {% endfor %}
+</div>
+{% endblock %}

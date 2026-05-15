@@ -1,23 +1,347 @@
+# Režiséři
+# Pozn.: photo_url používá službu picsum.photos s deterministickým seedem
+# (vrátí stále stejnou náhodnou fotku). Pro reálné fotky nahraď URL z TMDB/ČSFD/Wikipedie.
 - model: app.director
   pk: 1
   fields:
-    name: Quentin Tarantino
-    birth_year: 1952
-
+    name: Jan Svěrák
+    birth_year: 1965
+    nationality: Česko
+    bio: "Český režisér a herec, syn scenáristy Zdeňka Svěráka. Společně tvoří legendární filmové duo. Za film Kolja získal Oscara za nejlepší cizojazyčný snímek roku 1996."
+    photo_url: https://picsum.photos/seed/director-jan-sverak/400/400
 - model: app.director
   pk: 2
   fields:
-    name: Christopher Nolan
-    birth_year: 1970
-
+    name: Jan Hřebejk
+    birth_year: 1967
+    nationality: Česko
+    bio: "Český filmový režisér a scenárista. Spolu s Petrem Jarchovským vytvořil filmy o klíčových etapách české historie 20. století – Pelíšky, Musíme si pomáhat, Šakalí léta."
+    photo_url: https://picsum.photos/seed/director-jan-hrebejk/400/400
 - model: app.director
   pk: 3
   fields:
-    name: Steven Spielberg
-    birth_year: 1946
-
+    name: David Ondříček
+    birth_year: 1969
+    nationality: Česko
+    bio: "Český režisér a producent, syn skladatele Karla Ondříčka. Proslavil se filmy Samotáři, Šeptej a Ve stínu."
+    photo_url: https://picsum.photos/seed/director-david-ondricek/400/400
 - model: app.director
   pk: 4
   fields:
+    name: Petr Zelenka
+    birth_year: 1967
+    nationality: Česko
+    bio: "Český režisér, scenárista a dramatik s osobitým, intelektuálně hravým rukopisem. Mezi jeho nejznámější filmy patří Knoflíkáři, Rok ďábla a Bratři Karamazovi."
+    photo_url: https://picsum.photos/seed/director-petr-zelenka/400/400
+- model: app.director
+  pk: 5
+  fields:
+    name: Jiří Menzel
+    birth_year: 1938
+    nationality: Česko
+    bio: "Jeden z nejvýznamnějších českých režisérů. Za film Ostře sledované vlaky získal v roce 1968 Oscara. Adaptoval řadu próz Bohumila Hrabala."
+    photo_url: https://picsum.photos/seed/director-jiri-menzel/400/400
+- model: app.director
+  pk: 6
+  fields:
+    name: Miloš Forman
+    birth_year: 1932
+    nationality: Česko
+    bio: "Český a americký režisér československé nové vlny, dvojnásobný držitel Oscara za nejlepší režii (Přelet nad kukaččím hnízdem, Amadeus)."
+    photo_url: https://picsum.photos/seed/director-milos-forman/400/400
+- model: app.director
+  pk: 7
+  fields:
+    name: Juraj Herz
+    birth_year: 1934
+    nationality: Slovensko
+    bio: "Slovenský a československý filmový režisér, často spojovaný s českou novou vlnou. Proslul filmy Spalovač mrtvol a Petrolejové lampy."
+    photo_url: https://picsum.photos/seed/director-juraj-herz/400/400
+- model: app.director
+  pk: 8
+  fields:
+    name: Věra Chytilová
+    birth_year: 1929
+    nationality: Česko
+    bio: "Přední režisérka československé nové vlny, autorka surrealistických a feministicky laděných filmů. Zásadní dílo: Sedmikrásky."
+    photo_url: https://picsum.photos/seed/director-vera-chytilova/400/400
+- model: app.director
+  pk: 9
+  fields:
+    name: František Vláčil
+    birth_year: 1924
+    nationality: Česko
+    bio: "Český režisér s vizuálně velkolepým, výtvarně laděným rukopisem. Jeho film Markéta Lazarová byl v anketě kritiků zvolen nejlepším českým filmem všech dob."
+    photo_url: https://picsum.photos/seed/director-frantisek-vlacil/400/400
+- model: app.director
+  pk: 10
+  fields:
+    name: Karel Kachyňa
+    birth_year: 1924
+    nationality: Česko
+    bio: "Český režisér, autor přes čtyřiceti celovečerních filmů. Často spolupracoval se scenáristou Janem Procházkou (Ucho, Kočár do Vídně)."
+    photo_url: https://picsum.photos/seed/director-karel-kachyna/400/400
+- model: app.director
+  pk: 11
+  fields:
+    name: Oldřich Lipský
+    birth_year: 1924
+    nationality: Česko
+    bio: "Mistr české filmové parodie a hravé komedie. Spolu se scenáristou Jiřím Brdečkou vytvořil Limonádový Joe a Adéla ještě nevečeřela."
+    photo_url: https://picsum.photos/seed/director-oldrich-lipsky/400/400
+- model: app.director
+  pk: 12
+  fields:
+    name: Václav Vorlíček
+    birth_year: 1930
+    nationality: Česko
+    bio: "Český režisér proslavený pohádkami a komediemi s fantastickými prvky. Jeho Tři oříšky pro Popelku patří mezi nejoblíbenější vánoční pohádky."
+    photo_url: https://picsum.photos/seed/director-vaclav-vorlicek/400/400
+- model: app.director
+  pk: 13
+  fields:
+    name: Zdeněk Troška
+    birth_year: 1953
+    nationality: Česko
+    bio: "Český režisér populárních lidových komedií a pohádek. Autor trilogie Slunce, seno…, Kameňák a řady pohádek (O princezně Jasněnce a létajícím ševci)."
+    photo_url: https://picsum.photos/seed/director-zdenek-troska/400/400
+- model: app.director
+  pk: 14
+  fields:
+    name: Ondřej Trojan
+    birth_year: 1959
+    nationality: Česko
+    bio: "Český režisér a producent (Total HelpArt T.H.A.). Za film Želary byl nominován na Oscara za nejlepší cizojazyčný film."
+    photo_url: https://picsum.photos/seed/director-ondrej-trojan/400/400
+- model: app.director
+  pk: 15
+  fields:
+    name: Jiří Vejdělek
+    birth_year: 1965
+    nationality: Česko
+    bio: "Český režisér současných komedií a dramat. Točí často s Tatianou Vilhelmovou a Annou Geislerovou (Účastníci zájezdu, Ženy v běhu)."
+    photo_url: https://picsum.photos/seed/director-jiri-vejdelek/400/400
+- model: app.director
+  pk: 16
+  fields:
+    name: Marie Poledňáková
+    birth_year: 1941
+    nationality: Česko
+    bio: "Česká režisérka a scenáristka rodinných komedií. Autorka filmů S tebou mě baví svět a Jak dostat tatínka do polepšovny."
+    photo_url: https://picsum.photos/seed/director-marie-polednakova/400/400
+- model: app.director
+  pk: 17
+  fields:
+    name: Ladislav Smoljak
+    birth_year: 1931
+    nationality: Česko
+    bio: "Český režisér, scenárista, herec a spoluzakladatel Divadla Járy Cimrmana. Mimo cimrmanovskou tvorbu natočil komedii Vrchní, prchni!."
+    photo_url: https://picsum.photos/seed/director-ladislav-smoljak/400/400
+- model: app.director
+  pk: 18
+  fields:
+    name: Jiří Strach
+    birth_year: 1968
+    nationality: Česko
+    bio: "Český režisér televizních filmů a pohádek. Autor populární pohádkové série Anděl Páně."
+    photo_url: https://picsum.photos/seed/director-jiri-strach/400/400
+- model: app.director
+  pk: 19
+  fields:
+    name: Petr Nikolaev
+    birth_year: 1957
+    nationality: Česko
+    bio: "Český režisér, dokumentarista. Točí dramata s historickými či politickými tématy (Lidice, …a bude hůř)."
+    photo_url: https://picsum.photos/seed/director-petr-nikolaev/400/400
+- model: app.director
+  pk: 20
+  fields:
+    name: Tomáš Bařina
+    birth_year: 1971
+    nationality: Česko
+    bio: "Český režisér a scenárista, autor populární vinařské komediální série Bobule."
+    photo_url: https://picsum.photos/seed/director-tomas-barina/400/400
+- model: app.director
+  pk: 21
+  fields:
+    name: Quentin Tarantino
+    birth_year: 1963
+    nationality: USA
+    bio: "Americký režisér, scenárista a producent. Charakteristický nelineárním vyprávěním, popkulturními odkazy a stylizovaným násilím. Dvojnásobný držitel Oscara za scénář."
+    photo_url: https://picsum.photos/seed/director-tarantino/400/400
+- model: app.director
+  pk: 22
+  fields:
+    name: Sergio Leone
+    birth_year: 1929
+    nationality: Itálie
+    bio: "Italský režisér, jeden z tvůrců žánru spaghetti western. Mezi jeho stěžejní díla patří dolarová trilogie s Clintem Eastwoodem a Tenkrát v Americe."
+    photo_url: https://picsum.photos/seed/director-leone/400/400
+- model: app.director
+  pk: 23
+  fields:
+    name: David Lynch
+    birth_year: 1946
+    nationality: USA
+    bio: "Americký režisér a výtvarník s nezaměnitelným surrealistickým stylem. Autor filmů Mulholland Drive, Modrý samet a kultovního seriálu Twin Peaks."
+    photo_url: https://picsum.photos/seed/director-lynch/400/400
+- model: app.director
+  pk: 24
+  fields:
+    name: Andrej Tarkovskij
+    birth_year: 1932
+    nationality: SSSR
+    bio: "Sovětský filmový režisér, jeden z nejvýznamnějších autorů světové kinematografie. Tvoří kontemplativní, hluboce duchovní filmy (Stalker, Solaris, Zrcadlo)."
+    photo_url: https://picsum.photos/seed/director-tarkovsky/400/400
+- model: app.director
+  pk: 25
+  fields:
+    name: Akira Kurosawa
+    birth_year: 1910
+    nationality: Japonsko
+    bio: "Legendární japonský režisér, který přivedl japonský film na světovou scénu. Jeho samurajské filmy ovlivnily celou generaci tvůrců, včetně George Lucase a Sergia Leoneho."
+    photo_url: https://picsum.photos/seed/director-kurosawa/400/400
+- model: app.director
+  pk: 26
+  fields:
+    name: Ingmar Bergman
+    birth_year: 1918
+    nationality: Švédsko
+    bio: "Švédský filmový a divadelní režisér, jeden z nejvýznamnějších autorů evropského filmu. Jeho filmy řeší existenciální otázky, smrt a víru (Sedmá pečeť, Persona)."
+    photo_url: https://picsum.photos/seed/director-bergman/400/400
+- model: app.director
+  pk: 27
+  fields:
+    name: Federico Fellini
+    birth_year: 1920
+    nationality: Itálie
+    bio: "Italský režisér, jeden z géniů světového filmu. Mistr neorealismu a poetického fantazijního filmu. Pětkrát získal Oscara, mj. za Sladký život a 8 ½."
+    photo_url: https://picsum.photos/seed/director-fellini/400/400
+- model: app.director
+  pk: 28
+  fields:
+    name: Francis Ford Coppola
+    birth_year: 1939
+    nationality: USA
+    bio: "Americký režisér, klíčová postava nového Hollywoodu. Pětinásobný držitel Oscara, autor trilogie Kmotr a válečného epického snímku Apokalypsa."
+    photo_url: https://picsum.photos/seed/director-coppola/400/400
+- model: app.director
+  pk: 29
+  fields:
     name: Martin Scorsese
     birth_year: 1942
+    nationality: USA
+    bio: "Americký režisér, scenárista a producent. Mistr filmů z prostředí newyorské mafie a italoamerické komunity. Držitel Oscara za režii filmu Skrytá identita."
+    photo_url: https://picsum.photos/seed/director-scorsese/400/400
+- model: app.director
+  pk: 30
+  fields:
+    name: Steven Spielberg
+    birth_year: 1946
+    nationality: USA
+    bio: "Jeden z nejúspěšnějších filmových režisérů všech dob. Trojnásobný držitel Oscara, autor blockbusterů (E.T., Jurský park) i vážných dramat (Schindlerův seznam)."
+    photo_url: https://picsum.photos/seed/director-spielberg/400/400
+- model: app.director
+  pk: 31
+  fields:
+    name: Robert Zemeckis
+    birth_year: 1952
+    nationality: USA
+    bio: "Americký režisér a scenárista. Známý pro inovativní použití efektů – trilogie Návrat do budoucnosti, Forrest Gump (Oscar za režii), Kdo zabil králíka Rogera."
+    photo_url: https://picsum.photos/seed/director-zemeckis/400/400
+- model: app.director
+  pk: 32
+  fields:
+    name: Jean-Pierre Jeunet
+    birth_year: 1953
+    nationality: Francie
+    bio: "Francouzský režisér s pohádkovým, vizuálně bohatým stylem. Autor světového hitu Amélie z Montmartru a barvitého Delikatesy."
+    photo_url: https://picsum.photos/seed/director-jeunet/400/400
+- model: app.director
+  pk: 33
+  fields:
+    name: Michel Gondry
+    birth_year: 1963
+    nationality: Francie
+    bio: "Francouzský režisér klipů a celovečerních filmů, mistr ručně řemeslné vizuální poetiky. Za scénář Věčného svitu neposkvrněné mysli získal Oscara."
+    photo_url: https://picsum.photos/seed/director-gondry/400/400
+- model: app.director
+  pk: 34
+  fields:
+    name: Sofia Coppola
+    birth_year: 1971
+    nationality: USA
+    bio: "Americká režisérka, dcera Francise Forda Coppoly. Charakteristická citlivými, melancholickými portréty mladých žen. Oscar za scénář k Ztraceno v překladu."
+    photo_url: https://picsum.photos/seed/director-sofia-coppola/400/400
+- model: app.director
+  pk: 35
+  fields:
+    name: Richard Kelly
+    birth_year: 1975
+    nationality: USA
+    bio: "Americký nezávislý režisér, autor kultovního sci-fi mysteriózního filmu Donnie Darko."
+    photo_url: https://picsum.photos/seed/director-richard-kelly/400/400
+- model: app.director
+  pk: 36
+  fields:
+    name: Damien Chazelle
+    birth_year: 1985
+    nationality: USA
+    bio: "Americký režisér a scenárista. Točí filmy s hudebním tématem (Whiplash, La La Land, za který získal Oscara za režii)."
+    photo_url: https://picsum.photos/seed/director-chazelle/400/400
+- model: app.director
+  pk: 37
+  fields:
+    name: Alejandro González Iñárritu
+    birth_year: 1963
+    nationality: Mexiko
+    bio: "Mexický režisér, dvojnásobný držitel Oscara za režii (Birdman, Revenant). Autor strukturálně inovativních dramat o lidských osudech."
+    photo_url: https://picsum.photos/seed/director-inarritu/400/400
+- model: app.director
+  pk: 38
+  fields:
+    name: Roberto Benigni
+    birth_year: 1952
+    nationality: Itálie
+    bio: "Italský herec, režisér a komik. Za film Život je krásný získal Oscara za nejlepší mužský herecký výkon i za cizojazyčný film."
+    photo_url: https://picsum.photos/seed/director-benigni/400/400
+- model: app.director
+  pk: 39
+  fields:
+    name: Bong Joon-ho
+    birth_year: 1969
+    nationality: Jižní Korea
+    bio: "Jihokorejský režisér, který se proslavil i v zahraničí. Za film Parazit získal historicky první Oscara za nejlepší film pro neanglicky mluvený snímek."
+    photo_url: https://picsum.photos/seed/director-bong/400/400
+- model: app.director
+  pk: 40
+  fields:
+    name: Park Chan-wook
+    birth_year: 1963
+    nationality: Jižní Korea
+    bio: "Jihokorejský režisér, mistr stylizovaných, vizuálně silných filmů o pomstě a obsesi (trilogie pomsty: Old Boy, Lady Vengeance)."
+    photo_url: https://picsum.photos/seed/director-park/400/400
+- model: app.director
+  pk: 41
+  fields:
+    name: Wes Anderson
+    birth_year: 1969
+    nationality: USA
+    bio: "Americký režisér s nezaměnitelným vizuálním stylem – symetrické kompozice, pastelové palety, hravé scénáře. Autor Grandhotelu Budapešť a Rodu Tenenbaumů."
+    photo_url: https://picsum.photos/seed/director-wes-anderson/400/400
+- model: app.director
+  pk: 42
+  fields:
+    name: Danny Boyle
+    birth_year: 1956
+    nationality: Velká Británie
+    bio: "Britský režisér s energickým stylem. Známý filmy Trainspotting, 28 dní poté nebo Milionář z chatrče, za který získal Oscara za režii."
+    photo_url: https://picsum.photos/seed/director-boyle/400/400
+- model: app.director
+  pk: 43
+  fields:
+    name: Robert Eggers
+    birth_year: 1983
+    nationality: USA
+    bio: "Americký režisér se zájmem o historicky věrné, atmosférické a folklorně laděné horory. Autor filmů Čarodějnice, Maják a Seveřan."
+    photo_url: https://picsum.photos/seed/director-eggers/400/400

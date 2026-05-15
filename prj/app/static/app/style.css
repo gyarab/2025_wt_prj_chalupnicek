@@ -1,0 +1,439 @@
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f4f5f7;
+    color: #222;
+    line-height: 1.5;
+}
+a { color: #1d6fa5; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+
+/* Header */
+.site-header {
+    background: #1f2733;
+    color: #fff;
+    padding: 12px 0;
+    border-bottom: 3px solid #ffb400;
+}
+.site-header .logo {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+}
+.site-header a { color: #fff; }
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.nav { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.user-badge { color: #bbb; font-size: 14px; }
+.link-button {
+    background: none; border: none; color: #fff; cursor: pointer;
+    font: inherit; padding: 0;
+}
+.link-button:hover { text-decoration: underline; }
+
+/* Footer */
+.site-footer {
+    margin-top: 60px;
+    padding: 20px 0;
+    background: #1f2733;
+    color: #aaa;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Messages */
+.messages { list-style: none; padding: 0; margin: 16px 0; }
+.messages li {
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    background: #e7f3ff;
+    border-left: 4px solid #1d6fa5;
+}
+.messages li.error { background: #fde7e9; border-left-color: #c0392b; }
+.messages li.success { background: #e6f7e9; border-left-color: #27ae60; }
+
+/* Hero / page title */
+.page-title { margin: 28px 0 16px; font-size: 30px; }
+
+/* Filter bar */
+.filter-bar {
+    background: #fff;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    align-items: end;
+}
+.filter-bar label { display: block; font-size: 12px; color: #666; margin-bottom: 4px; }
+.filter-bar input, .filter-bar select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccd;
+    border-radius: 6px;
+    font: inherit;
+    background: #fff;
+}
+.filter-actions { display: flex; gap: 8px; }
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: #1d6fa5;
+    color: #fff !important;
+    border: none;
+    cursor: pointer;
+    text-decoration: none !important;
+    font: inherit;
+}
+.btn:hover { background: #155a85; }
+.btn.secondary { background: #6c7a89; }
+.btn.secondary:hover { background: #54616e; }
+
+/* Movie grid */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 18px;
+}
+.movie-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+    transition: transform .15s ease, box-shadow .15s ease;
+    display: flex;
+    flex-direction: column;
+}
+.movie-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,.10);
+    text-decoration: none;
+}
+.movie-card .poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background: #d8dde3 center/cover no-repeat;
+}
+.movie-card .body { padding: 10px 12px 14px; }
+.movie-card .title { font-size: 15px; font-weight: 600; color: #222; }
+.movie-card .meta { font-size: 13px; color: #777; margin-top: 2px; }
+.movie-card .rating-badge {
+    display: inline-block;
+    margin-top: 6px;
+    background: #ffb400;
+    color: #222;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888;
+}
+
+/* Movie detail */
+.detail-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 28px;
+    margin-top: 24px;
+}
+@media (max-width: 700px) { .detail-grid { grid-template-columns: 1fr; } }
+.detail-poster img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.10);
+}
+.detail-body h1 { margin: 0 0 6px; font-size: 30px; }
+.detail-body .subtitle { color: #777; margin-bottom: 14px; }
+.detail-body .chips { margin: 10px 0; }
+.chip {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #eef2f6;
+    border-radius: 14px;
+    font-size: 13px;
+    margin-right: 6px;
+    color: #345;
+}
+.detail-section { margin-top: 28px; }
+.detail-section h2 { font-size: 20px; margin-bottom: 10px; }
+
+/* Cast */
+.cast {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+}
+.cast a { color: #222; }
+.cast .person {
+    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+.cast .person img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #d8dde3;
+}
+.cast .person .name { font-size: 13px; font-weight: 600; margin-top: 6px; }
+
+/* Comments / ratings */
+.comments { list-style: none; padding: 0; }
+.comment {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    margin-bottom: 10px;
+}
+.comment .meta { font-size: 12px; color: #888; margin-bottom: 4px; }
+.comment .author { font-weight: 600; color: #345; }
+
+.form-card {
+    background: #fff;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    margin-bottom: 18px;
+}
+.form-card label { display: block; font-weight: 600; margin-bottom: 4px; font-size: 14px; }
+.form-card input, .form-card textarea, .form-card select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccd;
+    border-radius: 6px;
+    font: inherit;
+    margin-bottom: 12px;
+}
+.form-card textarea { min-height: 90px; resize: vertical; }
+.form-card .helptext { font-size: 12px; color: #999; }
+.form-card .errorlist { color: #c0392b; list-style: none; padding: 0; font-size: 13px; }
+
+.rating-stars { font-size: 24px; color: #ffb400; }
+.muted { color: #777; font-size: 14px; }
+
+.your-rating-badge {
+    display: inline-block;
+    background: #27ae60;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+/* Clickable chips (genres) */
+.chip-link {
+    text-decoration: none;
+    transition: background .12s ease, color .12s ease;
+}
+.chip-link:hover {
+    background: #1d6fa5;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Cast person card is now a link */
+.cast .person {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+.cast .person:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0,0,0,.10);
+    text-decoration: none;
+}
+
+/* Action row on movie detail */
+.action-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+/* People grid (directors / actors list) */
+.people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 16px;
+}
+.person-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+.person-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,.10);
+    text-decoration: none;
+}
+.person-card .person-photo {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: #d8dde3 center/cover no-repeat;
+}
+.person-card .person-info { padding: 10px 12px 14px; }
+.person-card .person-name { font-weight: 600; font-size: 15px; color: #222; }
+.person-card .person-meta { font-size: 13px; color: #777; margin-top: 2px; }
+
+/* Person detail header */
+.person-detail {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 28px;
+    margin-top: 24px;
+}
+@media (max-width: 700px) { .person-detail { grid-template-columns: 1fr; } }
+.person-detail-photo img,
+.person-detail-photo .placeholder {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    background: #d8dde3 center/cover no-repeat;
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgba(0,0,0,.10);
+}
+.person-detail-body h1 { margin: 0 0 6px; font-size: 28px; }
+.person-detail-body .subtitle { color: #777; margin-bottom: 14px; }
+
+/* ---- Rating picker (radio button group in modal) ---- */
+.rating-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 2 řádky po 5 na mobilu */
+    gap: 8px;
+}
+@media (min-width: 480px) {
+    .rating-buttons { grid-template-columns: repeat(10, 1fr); }
+}
+.rating-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;          /* dotykový cíl ≥ 44 px (Apple HIG) */
+    padding: 10px 0;
+    border: 2px solid #1d6fa5;
+    border-radius: 10px;
+    background: #fff;
+    color: #1d6fa5;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background .15s ease, color .15s ease, transform .05s ease;
+}
+.rating-pill:hover { background: #e7f3ff; }
+.rating-pill:active { transform: scale(.96); }
+.btn-check:checked + .rating-pill {
+    background: #1d6fa5;
+    color: #fff;
+}
+.btn-check:focus-visible + .rating-pill {
+    outline: 2px solid #0a4f80;
+    outline-offset: 2px;
+}
+
+/* ---- Bootstrap modal – mobile-first polish ---- */
+
+/* Footer button spacing */
+.modal-footer .btn { padding: 10px 18px; min-height: 44px; }
+
+/* Form controls inside modal: 16px font prevents iOS auto-zoom on focus */
+.modal-body .form-control,
+.modal-body .form-select {
+    font-size: 16px;
+    padding: 10px 12px;
+    border-radius: 8px;
+}
+.modal-body .form-label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.modal-body textarea.form-control { min-height: 140px; resize: vertical; }
+
+/* Větší zavírací křížek (snadnější trefa palcem) */
+.modal-header .btn-close {
+    padding: 14px;
+    background-size: 1em;
+    opacity: .7;
+}
+.modal-header .btn-close:hover { opacity: 1; }
+
+/* Sloupcové uspořádání obsahu (header / body roste / footer u dna) */
+.modal-content {
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.20);
+}
+.modal-content form { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+.modal-header { padding: 16px 18px; }
+.modal-body { padding: 16px 18px; }
+.modal-footer { padding: 12px 16px; gap: 8px; }
+
+/* Mobile full-screen (modal-fullscreen-sm-down) – sticky footer ve spodu obrazovky.
+   Bootstrap pro fullscreen variant nastaví modal-content na 100vh; uděláme z patičky
+   sticky lištu, aby tlačítka byla vždy dosažitelná i při dlouhém formuláři. */
+@media (max-width: 575.98px) {
+    .modal-fullscreen-sm-down .modal-content { border-radius: 0; }
+    .modal-fullscreen-sm-down .modal-header,
+    .modal-fullscreen-sm-down .modal-footer {
+        position: sticky;
+        background: #fff;
+        z-index: 2;
+    }
+    .modal-fullscreen-sm-down .modal-header {
+        top: 0;
+        border-bottom: 1px solid #eee;
+    }
+    .modal-fullscreen-sm-down .modal-footer {
+        bottom: 0;
+        border-top: 1px solid #eee;
+        /* Bezpečná oblast pro telefony s notchem / home indicator */
+        padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    }
+    .modal-fullscreen-sm-down .modal-footer .btn { flex: 1 1 0; } /* tlačítka přes celou šířku */
+    .modal-fullscreen-sm-down .modal-body { padding: 18px; }
+    .modal-fullscreen-sm-down .rating-pill { min-height: 52px; font-size: 17px; }
+}
+
+/* Plynulé slide-up na mobilu (modal-fullscreen-sm-down + .fade) */
+@media (max-width: 575.98px) {
+    .modal.fade .modal-dialog {
+        transform: translateY(40px);
+        transition: transform .25s ease-out;
+    }
+    .modal.show .modal-dialog { transform: translateY(0); }
+}
+
+/* Dotykové akční tlačítko (na detailu filmu) – pohodlnější výška na mobilu */
+@media (max-width: 575.98px) {
+    .action-row .btn { min-height: 44px; padding: 10px 16px; }
+}

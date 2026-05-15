@@ -1,70 +1,258 @@
-# Webová aplikace
-Vznikla v předmětu Webové technologie na Gymnáziu Arabská ve školním roce 2025/2026.
+# FilmDB — webová aplikace
 
-## Local development
+Referenční projekt pro předmět **Webové technologie** na Gymnáziu Arabská
+(školní rok 2025/2026). Slouží jako ukázka jednoduché, ale úplné aplikace
+postavené nad Django frameworkem — od datového modelu přes views a šablony
+až po REST API.
 
-Aplikace používá Python Virtual Environment, před spuštěním je potřeba vytvořit venv (pokud neexistuje):
+---
+
+## Co aplikace umí
+
+FilmDB je miniaturní filmová databáze ve stylu ČSFD / IMDb:
+
+- 🎬 **Seznam filmů** s filtrováním podle žánru, roku, režiséra a herce
+  a s fulltextovým vyhledáváním v názvu.
+- 👤 **Detail filmu** — popis, žánry, režisér, obsazení, průměrné hodnocení.
+- ⭐ **Hodnocení 1–10** — přihlášený uživatel může každý film ohodnotit
+  (jedno hodnocení na uživatele a film, dá se přepsat).
+- 💬 **Komentáře** — přihlášený uživatel může psát komentáře pod filmy.
+- 🎭 **Profily herců a režisérů** s filmografií.
+- 🔐 **Registrace, přihlášení a odhlášení** uživatele.
+- 🛠️ **Django administrace** pro editaci dat.
+- 🌐 **REST API** (django-ninja) s automaticky generovanou dokumentací
+  na `/api/docs`.
+
+---
+
+## Datový model (E-R diagram)
+
+Vztahy mezi tabulkami v `app/models.py`. `PK` = primary key,
+`FK` = foreign key. `User` je vestavěný model z `django.contrib.auth`.
+
+```
+   ┌──────────────┐        ┌──────────────┐        ┌──────────────┐
+   │    Genre     │        │     User     │        │    Actor     │
+   ├──────────────┤        │ (django.auth)│        ├──────────────┤
+   │ id     (PK)  │        ├──────────────┤        │ id     (PK)  │
+   │ name         │        │ id     (PK)  │        │ name         │
+   └──────┬───────┘        │ username     │        │ birth_year   │
+          │                │ password     │        │ nationality  │
+          │                │ email        │        │ bio          │
+          │                │ ...          │        │ photo_url    │
+          │                └──────┬───────┘        └──────┬───────┘
+          │                       │                       │
+          │ M:N                   │ 1:N                   │ M:N
+          │              ┌────────┴────────┐              │
+          │              │                 │              │
+          │         ┌────▼─────┐     ┌─────▼────┐         │
+          │         │ Comment  │     │  Rating  │         │
+          │         ├──────────┤     ├──────────┤         │
+          │         │ id  (PK) │     │ id  (PK) │         │
+          │         │ user (FK)│     │ user (FK)│         │
+          │         │ movie(FK)│     │ movie(FK)│         │
+          │         │ text     │     │ value    │         │
+          │         │ created  │     │ (1–10)   │         │
+          │         └────┬─────┘     └─────┬────┘         │
+          │              │ N:1             │ N:1          │
+          │              ▼                 ▼              │
+          │         ┌────────────────────────────┐        │
+          └────────►│           Movie            │◄───────┘
+                    ├────────────────────────────┤
+                    │ id              (PK)       │
+                    │ title                      │
+                    │ original_title             │
+                    │ year                       │
+                    │ duration_minutes           │
+                    │ country                    │
+                    │ description                │
+                    │ poster_url                 │
+                    │ director_id     (FK)       │
+                    └─────────────┬──────────────┘
+                                  │ N:1
+                                  ▼
+                           ┌──────────────┐
+                           │   Director   │
+                           ├──────────────┤
+                           │ id     (PK)  │
+                           │ name         │
+                           │ birth_year   │
+                           │ nationality  │
+                           │ bio          │
+                           │ photo_url    │
+                           └──────────────┘
+```
+
+Vztahy slovem:
+
+| Vztah                  | Typ | Realizace v Djangu                         |
+|------------------------|-----|--------------------------------------------|
+| Movie ↔ Director       | N:1 | `ForeignKey` (jeden film = jeden režisér)  |
+| Movie ↔ Actor          | M:N | `ManyToManyField` (film má víc herců)      |
+| Movie ↔ Genre          | M:N | `ManyToManyField` (film má víc žánrů)      |
+| Movie ↔ Comment        | 1:N | `ForeignKey` na Movie                      |
+| Movie ↔ Rating         | 1:N | `ForeignKey` + `unique_together(movie,user)` |
+| User ↔ Comment, Rating | 1:N | `ForeignKey` na vestavěného `User`         |
+
+---
+
+## Struktura projektu
+
+```
+2025_wt_prj_chalupnicek/
+├── requirements.txt           # python závislosti
+├── fixtures/                  # ukázková data v YAML (viz níže)
+│   ├── actors.yaml
+│   ├── comments.yaml
+│   ├── directors.yaml
+│   ├── genres.yaml
+│   ├── movies.yaml
+│   ├── ratings.yaml
+│   └── users.yaml
+└── prj/                       # vlastní Django projekt
+    ├── manage.py
+    ├── db.sqlite3             # SQLite DB (vznikne po `migrate`)
+    ├── prj/                   # nastavení projektu
+    │   ├── settings.py
+    │   └── urls.py            # root URL conf — namapuje /, /admin, /api
+    └── app/                   # naše hlavní aplikace
+        ├── models.py          # datový model (viz E-R nahoře)
+        ├── views.py           # HTML pohledy (home, detail, …)
+        ├── api.py             # REST API přes django-ninja
+        ├── forms.py           # formuláře (komentář, hodnocení, registrace)
+        ├── admin.py           # registrace modelů do admin rozhraní
+        ├── migrations/        # automaticky generované migrace
+        ├── static/            # CSS, obrázky
+        └── templates/         # HTML šablony
+            ├── base.html
+            ├── home.html
+            ├── movie_detail.html
+            ├── actors.html / actor_detail.html
+            ├── directors.html / director_detail.html
+            └── registration/  # login.html, register.html
+```
+
+---
+
+## Lokální spuštění
+
+Aplikace používá Python Virtual Environment. Před prvním spuštěním je
+potřeba ho vytvořit:
 
 ```bash
-# Linux
+# Linux / macOS
 python3 -m venv venv
 
 # Windows
 py -3 -m venv venv
 ```
 
-Dále je třeba venv aktivovat:
+Aktivace venv (před každou prací):
 
 ```bash
-# [Linux]
+# Linux / macOS
 source ./venv/bin/activate
 
-# Windows - Bash
+# Windows — Git Bash
 source ./venv/Scripts/activate
 
-# Windows - Power shell
-...
+# Windows — PowerShell
+.\venv\Scripts\Activate.ps1
 ```
 
-Je třeba ujistit se, že jsou nainstalovány všechny závislosti:
+Instalace závislostí (Django, PyYAML, django-ninja):
 
 ```bash
 # (venv)$
 pip install -r requirements.txt
 ```
 
-Spustit lokalni server
+Inicializace databáze (jen poprvé, nebo po `git pull`, který přidá migrace):
 
 ```bash
 cd prj
-./manage.py runserver
-```
-
-Pokud pouštíme projekt poprvé, je třeba inicializovat DB pomocí
-
-```bash
 ./manage.py migrate
 ```
 
-Pokud je DB prázdná a chceme mít přístup do Django administrace, vytvoříme si uživatele pomocí
+Naplnění ukázkovými daty (žánry, filmy, herci, režiséři, uživatelé,
+komentáře, hodnocení):
+
+```bash
+./manage.py loaddata ../fixtures/*.yaml
+```
+
+Vytvoření admin uživatele (pokud nepoužiješ uživatele z fixtures):
 
 ```bash
 ./manage.py createsuperuser
 ```
 
-Doporučuji použít username `admin` a heslo `admin`, bez e-mailu.
+> Pro výuku doporučuji jednoduché `admin` / `admin` bez e-mailu —
+> Django bude protestovat kvůli slabému heslu, prostě potvrď.
 
-
-## Změna `models.py`
-
-Po kazde zmene v models.py je treba pustit skript, ktery vygeneruje zmenu struktury DB.
+Start vývojového serveru:
 
 ```bash
-./manage.py makemigrations
+./manage.py runserver
 ```
 
-Pote zmenu DB aplikovat na aktualni zivou DB
+A pak v prohlížeči:
+
+| URL                              | Co tam je                           |
+|----------------------------------|--------------------------------------|
+| http://127.0.0.1:8000/           | hlavní stránka — seznam filmů        |
+| http://127.0.0.1:8000/admin/     | Django administrace                  |
+| http://127.0.0.1:8000/api/docs   | interaktivní dokumentace REST API    |
+
+---
+
+## Workflow při změně modelu
+
+Po **každé** úpravě `app/models.py` je potřeba vygenerovat migraci a
+spustit ji proti DB:
 
 ```bash
-./manage.py migrate
+./manage.py makemigrations   # vytvoří soubor v app/migrations/
+./manage.py migrate          # aplikuje změny na db.sqlite3
 ```
+
+> Migrace se commitují do gitu — patří k modelu. Když si je smažeš
+> a vygeneruješ znova, ostatní si nebudou rozumět s tvojí DB.
+
+Pokud se DB úplně rozbije (typicky během experimentování), nejjednodušší
+fix je smazat `prj/db.sqlite3`, pustit `migrate` a znovu `loaddata`.
+
+---
+
+## REST API
+
+Endpointy jsou definované v [prj/app/api.py](prj/app/api.py) pomocí
+knihovny [django-ninja](https://django-ninja.dev/). Interaktivní swagger
+dokumentace běží na `/api/docs`.
+
+Příklady:
+
+```bash
+# seznam filmů
+curl http://127.0.0.1:8000/api/movie
+
+# detail filmu
+curl http://127.0.0.1:8000/api/movie/1
+
+# filtrování
+curl "http://127.0.0.1:8000/api/movie?genre_id=2&year=1999"
+```
+
+`POST`/`PUT`/`DELETE` endpointy vyžadují přihlášení (cookie session
+z `/admin/login/`).
+
+---
+
+## Studijní tipy
+
+- Začni u `urls.py` → `views.py` → `templates/` → `models.py`. To je
+  cesta jednoho requestu.
+- Django shell je tvůj kamarád: `./manage.py shell` ti pustí Python
+  s loadnutými modely — ideální na zkoušení ORM dotazů.
+- Když něco nefunguje, koukni do terminálu, kde běží `runserver` —
+  Django tam píše plný traceback.

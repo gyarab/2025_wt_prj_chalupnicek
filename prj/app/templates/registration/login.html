@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Přihlášení{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Přihlášení</h1>
+
+<form method="post" class="form-card" style="max-width:420px;">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+            {% for err in form.non_field_errors %}<div>{{ err }}</div>{% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="mb-3">
+        <label for="id_username" class="form-label">Uživatelské jméno</label>
+        <input type="text" name="username" id="id_username" class="form-control form-control-lg" required autofocus autocomplete="username">
+    </div>
+
+    <div class="mb-3">
+        <label for="id_password" class="form-label">Heslo</label>
+        <input type="password" name="password" id="id_password" class="form-control form-control-lg" required autocomplete="current-password">
+    </div>
+
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="btn w-100">Přihlásit se</button>
+</form>
+
+<p class="muted mt-3">Ještě nemáš účet? <a href="{% url 'register' %}">Zaregistruj se.</a></p>
+{% endblock %}

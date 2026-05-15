@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ actor.name }}{% endblock %}
+
+{% block content %}
+<p><a href="{% url 'actors' %}">← zpět na herce</a></p>
+
+<div class="person-detail">
+    <div class="person-detail-photo">
+        {% if actor.photo_url %}
+            <img src="{{ actor.photo_url }}" alt="{{ actor.name }}">
+        {% else %}
+            <div class="placeholder"></div>
+        {% endif %}
+    </div>
+    <div class="person-detail-body">
+        <h1>{{ actor.name }}</h1>
+        <div class="subtitle">
+            Herec / herečka
+            {% if actor.birth_year %} · narozen(a) {{ actor.birth_year }}{% endif %}
+            {% if actor.nationality %} · {{ actor.nationality }}{% endif %}
+        </div>
+        {% if actor.bio %}<p>{{ actor.bio }}</p>{% endif %}
+    </div>
+</div>
+
+<section class="detail-section">
+    <h2>Filmografie ({{ movies|length }})</h2>
+    {% if movies %}
+    <div class="movie-grid">
+        {% for movie in movies %}
+            <a href="{% url 'movie_detail' movie.id %}" class="movie-card">
+                <div class="poster" style="{% if movie.poster_url %}background-image: url('{{ movie.poster_url }}');{% endif %}"></div>
+                <div class="body">
+                    <div class="title">{{ movie.title }}</div>
+                    <div class="meta">{% if movie.year %}{{ movie.year }}{% endif %}</div>
+                    {% if movie.avg %}<span class="rating-badge">★ {{ movie.avg|floatformat:1 }}</span>{% endif %}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p class="muted">Žádné filmy v databázi.</p>
+    {% endif %}
+</section>
+{% endblock %}

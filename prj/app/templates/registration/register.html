@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrace{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Registrace</h1>
+
+<form method="post" class="form-card" style="max-width:420px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Vytvořit účet</button>
+</form>
+
+<p class="muted">Už máš účet? <a href="{% url 'login' %}">Přihlas se.</a></p>
+{% endblock %}
