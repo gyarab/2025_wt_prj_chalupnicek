@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}API Playground{% endblock %}
+
+{% block content %}
+<h1 class="page-title">API Playground</h1>
+
+<p class="muted">Tady můžeš testovat API koncové body.</p>
+
+
+<!-- show number input and button, show movie GET in pre -->
+<div class="api-test">
+    <h2>Test Movie GET</h2>
+    <input type="number" id="movieIdInput" placeholder="Zadejte ID filmu">
+    <button id="fetchMovieButton" onclick="fetchMovie()">Načíst film</button>
+    <button id="resetButton" onclick="resetOutput()">Vyčistit</button>
+    <pre id="movieResponse" class="response"></pre>
+</div>
+
+<script>
+    function resetOutput() {
+        document.getElementById('movieResponse').textContent = '';
+    }
+
+    function fetchMovie() {
+        const movieId = document.getElementById('movieIdInput').value;
+        fetch(`/api/movie/${movieId}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('movieResponse').textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                document.getElementById('movieResponse').textContent = 'Error: ' + error;
+            });
+    }
+    console.log("API Playground loaded");
+</script>
+{% endblock %}

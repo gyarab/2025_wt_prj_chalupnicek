@@ -58,6 +58,10 @@ def render_about(request):
     return render(request, "about.html")
 
 
+def render_api_playground(request):
+    return render(request, "api_playground.html")
+
+
 def render_movie_detail(request, movie_id):
     movie = get_object_or_404(
         Movie.objects.select_related("director").prefetch_related("actors", "genres"),
