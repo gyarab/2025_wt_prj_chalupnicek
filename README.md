@@ -204,6 +204,14 @@ A pak v prohlížeči:
 | http://127.0.0.1:8000/admin/     | Django administrace                  |
 | http://127.0.0.1:8000/api/docs   | interaktivní dokumentace REST API    |
 
+### Frontend
+
+```
+cd frontend
+npm install
+npm run dev
+```
+
 ---
 
 ## Workflow při změně modelu
