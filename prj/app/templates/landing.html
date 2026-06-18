@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}FilmDB – rozcestník{% endblock %}
+
+{% block content %}
+<h1 class="page-title">FilmDB</h1>
+
+<p>
+    Tahle aplikace má <strong>dva frontendy</strong> nad stejným Django backendem
+    (REST API + admin). Můžeš si vybrat, který chceš použít:
+</p>
+
+<div class="movie-grid" style="margin-top: 28px;">
+    <a href="{% url 'home' %}" class="movie-card" style="padding: 24px;">
+        <div class="title" style="font-size: 22px;">🐍 Django frontend</div>
+        <p class="muted" style="margin-top: 8px;">
+            Klasický server-rendered web. HTML šablony, formuláře, sessions.
+            Otevři <code>/movies/</code> a procházej filmy stejně jako dřív.
+        </p>
+    </a>
+
+    <a href="http://localhost:5173/" class="movie-card" style="padding: 24px;">
+        <div class="title" style="font-size: 22px;">⚡ Vue frontend (SPA)</div>
+        <p class="muted" style="margin-top: 8px;">
+            Single-page aplikace. Vue 3 + Vite. Načítá filmy z REST API
+            (<code>/api/movie</code>). Spusť ji přes
+            <code>cd frontend && npm run dev</code> a otevři
+            <code>http://localhost:5173/</code>.
+        </p>
+    </a>
+</div>
+
+<div class="detail-section">
+    <h2>K čemu to je?</h2>
+    <p>
+        Backend (Django) zůstává stejný – data, business logika, autentizace.
+        Frontend je <em>oddělená vrstva</em>, kterou jde vyměnit. Klasická šablonová cesta
+        a moderní JavaScript SPA stojí vedle sebe a obě konzumují stejné
+        <a href="/api/docs">REST API</a>.
+    </p>
+    <p class="muted">
+        V další lekci frontend (Vue) i backend (Django) odděleně zabalíme do
+        <strong>Docker kontejnerů</strong>. Tahle adresářová struktura
+        (<code>/prj</code> a <code>/frontend</code> vedle sebe) je na to už připravená.
+    </p>
+</div>
+{% endblock %}

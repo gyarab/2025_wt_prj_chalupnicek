@@ -12,7 +12,7 @@
 <body>
     <header class="site-header">
         <div class="container header-row">
-            <a class="logo" href="{% url 'home' %}">🎬 FilmDB</a>
+            <a class="logo" href="{% url 'landing' %}">🎬 FilmDB</a>
             <nav class="nav">
                 <a href="{% url 'home' %}">Filmy</a>
                 <a href="{% url 'directors' %}">Režiséři</a>
@@ -20,6 +20,7 @@
                 <a href="{% url 'about' %}">O projektu</a>
                 <a href="{% url 'api_playground' %}">API Playground</a>
                 <a href="/api/docs">API</a>
+                <a href="http://localhost:5173/" title="Vue SPA frontend (dev server)">⚡ Vue</a>
                 {% if user.is_authenticated %}
                     <span class="user-badge">Přihlášen: <strong>{{ user.username }}</strong></span>
                     {% if user.is_staff %}<a href="/admin/">Admin</a>{% endif %}

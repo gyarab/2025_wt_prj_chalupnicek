@@ -22,6 +22,9 @@ FilmDB je miniaturní filmová databáze ve stylu ČSFD / IMDb:
 - 🛠️ **Django administrace** pro editaci dat.
 - 🌐 **REST API** (django-ninja) s automaticky generovanou dokumentací
   na `/api/docs`.
+- ⚡ **Alternativní Vue SPA frontend** ve složce [frontend/](frontend/),
+  který stejné API konzumuje z JavaScriptu (příprava na rozdělení do
+  Docker kontejnerů).
 
 ---
 
@@ -98,9 +101,12 @@ Vztahy slovem:
 
 ## Struktura projektu
 
+Projekt má dvě nezávislé části, každou ve své vlastní složce. V budoucnu
+půjde každou zabalit do samostatného Docker kontejneru.
+
 ```
 2025_wt_prj_chalupnicek/
-├── requirements.txt           # python závislosti
+├── requirements.txt           # python závislosti (backend)
 ├── fixtures/                  # ukázková data v YAML (viz níže)
 │   ├── actors.yaml
 │   ├── comments.yaml
@@ -109,27 +115,41 @@ Vztahy slovem:
 │   ├── movies.yaml
 │   ├── ratings.yaml
 │   └── users.yaml
-└── prj/                       # vlastní Django projekt
-    ├── manage.py
-    ├── db.sqlite3             # SQLite DB (vznikne po `migrate`)
-    ├── prj/                   # nastavení projektu
-    │   ├── settings.py
-    │   └── urls.py            # root URL conf — namapuje /, /admin, /api
-    └── app/                   # naše hlavní aplikace
-        ├── models.py          # datový model (viz E-R nahoře)
-        ├── views.py           # HTML pohledy (home, detail, …)
-        ├── api.py             # REST API přes django-ninja
-        ├── forms.py           # formuláře (komentář, hodnocení, registrace)
-        ├── admin.py           # registrace modelů do admin rozhraní
-        ├── migrations/        # automaticky generované migrace
-        ├── static/            # CSS, obrázky
-        └── templates/         # HTML šablony
-            ├── base.html
-            ├── home.html
-            ├── movie_detail.html
-            ├── actors.html / actor_detail.html
-            ├── directors.html / director_detail.html
-            └── registration/  # login.html, register.html
+├── prj/                       # 🐍 Django backend (API + admin + HTML frontend)
+│   ├── manage.py
+│   ├── db.sqlite3             # SQLite DB (vznikne po `migrate`)
+│   ├── prj/                   # nastavení projektu
+│   │   ├── settings.py
+│   │   └── urls.py            # root URL conf — namapuje /, /admin, /api
+│   └── app/                   # naše hlavní aplikace
+│       ├── models.py          # datový model (viz E-R nahoře)
+│       ├── views.py           # HTML pohledy (landing, movies, detail, …)
+│       ├── api.py             # REST API přes django-ninja
+│       ├── forms.py           # formuláře (komentář, hodnocení, registrace)
+│       ├── admin.py           # registrace modelů do admin rozhraní
+│       ├── migrations/        # automaticky generované migrace
+│       ├── static/            # CSS, obrázky
+│       └── templates/         # HTML šablony
+│           ├── base.html
+│           ├── landing.html   # `/` — rozcestník mezi Django a Vue frontendem
+│           ├── home.html      # `/movies/` — seznam filmů (Django frontend)
+│           ├── movie_detail.html
+│           ├── actors.html / actor_detail.html
+│           ├── directors.html / director_detail.html
+│           └── registration/  # login.html, register.html
+└── frontend/                  # ⚡ Vue SPA frontend (alternativa Django šablon)
+    ├── README.md              # podrobný popis Node/npm/Vite/Vue
+    ├── package.json           # JS závislosti + npm skripty
+    ├── vite.config.js         # dev server, proxy /api → :8000
+    ├── index.html
+    └── src/
+        ├── main.js
+        ├── App.vue
+        ├── style.css
+        ├── router/index.js
+        └── views/
+            ├── MovieList.vue   # `/`            — volá GET /api/movie
+            └── MovieDetail.vue # `/movie/:id`   — volá GET /api/movie/{id}
 ```
 
 ---
@@ -198,11 +218,29 @@ Start vývojového serveru:
 
 A pak v prohlížeči:
 
-| URL                              | Co tam je                           |
-|----------------------------------|--------------------------------------|
-| http://127.0.0.1:8000/           | hlavní stránka — seznam filmů        |
-| http://127.0.0.1:8000/admin/     | Django administrace                  |
-| http://127.0.0.1:8000/api/docs   | interaktivní dokumentace REST API    |
+| URL                                | Co tam je                                          |
+|------------------------------------|----------------------------------------------------|
+| http://127.0.0.1:8000/             | rozcestník (Django HTML × Vue SPA frontend)        |
+| http://127.0.0.1:8000/movies/      | Django frontend — seznam filmů                     |
+| http://127.0.0.1:8000/admin/       | Django administrace                                |
+| http://127.0.0.1:8000/api/docs     | interaktivní dokumentace REST API                  |
+
+### Vue frontend (volitelně, ve druhém terminálu)
+
+Vue SPA frontend žije ve složce [frontend/](frontend/) a běží na vlastním
+portu. Poprvé nainstaluj JS závislosti, pak nech běžet `npm run dev`:
+
+```bash
+cd frontend
+npm install         # jen poprvé (vytvoří node_modules/)
+npm run dev         # spustí Vite dev server na http://localhost:5173/
+```
+
+Vue volá Django API přes `fetch('/api/movie')`. V dev režimu Vite tyhle
+requesty proxuje na `http://localhost:8000` (viz [frontend/vite.config.js](frontend/vite.config.js)),
+takže nepotřebuješ řešit CORS. Django musí současně běžet.
+
+Podrobnější popis Node.js, npm, Vite a Vue najdeš v [frontend/README.md](frontend/README.md).
 
 ### Frontend
 

@@ -10,7 +10,14 @@ from .forms import CommentForm, RatingForm, RegisterForm
 from .models import Actor, Director, Genre, Movie, Rating
 
 
-def render_home(request):
+def render_landing(request):
+    # `/` slouží jako rozcestník mezi dvěma frontendy:
+    # - klasický Django HTML frontend (server-rendered) na /movies/
+    # - nový Vue SPA frontend, který v dev běží na http://localhost:5173/
+    return render(request, "landing.html")
+
+
+def render_movies(request):
     movies = Movie.objects.all().annotate(avg=Avg("ratings__value")).select_related("director")
 
     q = request.GET.get("q", "").strip()
