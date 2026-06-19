@@ -294,6 +294,35 @@ z `/admin/login/`).
 
 ---
 
+## Nasazení na server (deployment)
+
+Aplikace umí běžet i na reálném serveru (`gawt.dtcloud.cz`), zabalená do Docker
+kontejnerů. Vše k tomu je ve složce [deploy/](deploy/) a v GitHub Action
+[.github/workflows/deploy.yml](.github/workflows/deploy.yml).
+
+Stručně:
+
+- **`web`** (Django + gunicorn) a **`frontend`** (nginx) jsou dvě služby v
+  [deploy/docker-compose.yml](deploy/docker-compose.yml). nginx je vstupní brána:
+  servíruje nabuildovanou Vue SPA pod `/app/`, statiku (`/static/`) a média
+  (`/media/`), zbytek proxuje na Django (`/`, `/movies/`, `/admin/`, `/api/`).
+- **Ansible** ([deploy/playbooks/](deploy/playbooks/)) pošle commitnutý zdroják na
+  server a postaví + spustí stack. Cílový server a SSH uživatel jsou ve verzovaném
+  [deploy/inventory.ini](deploy/inventory.ini).
+- **GitHub Actions** deployuje při pushi do `main`; ruční spuštění umí navíc
+  *seed* (naplnění databáze z [fixtures/](fixtures/)).
+- Jediné tajemství je SSH klíč v repository secrets jako `SSH_PRIVATE_KEY` —
+  bezpečnost je tu pro účely výuky záměrně zjednodušená.
+
+Podrobný návod (konfigurace, ruční spuštění, předpoklady na serveru) je v
+[deploy/README.md](deploy/README.md).
+
+> `settings.py` je teď připravené na produkci: `SECRET_KEY`, `DEBUG`,
+> `ALLOWED_HOSTS`, cesta k databázi i `STATIC_ROOT`/`MEDIA_ROOT` se dají nastavit
+> přes proměnné prostředí. Bez nich (lokálně) platí stejné výchozí hodnoty jako dřív.
+
+---
+
 ## Studijní tipy
 
 - Začni u `urls.py` → `views.py` → `templates/` → `models.py`. To je

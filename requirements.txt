@@ -1,3 +1,5 @@
 django
 pyyaml
 django-ninja
+# WSGI server pro produkci (lokálně stačí `./manage.py runserver`).
+gunicorn

@@ -1,0 +1,14 @@
+# Build context pro backend image (kořen repa). Pryč s tím, co image nepotřebuje.
+.git/
+.github/
+venv/
+**/__pycache__/
+**/*.pyc
+
+# Lokální SQLite a posbírané statické soubory — v kontejneru vznikají znovu na volume.
+prj/db.sqlite3
+prj/staticfiles/
+prj/media/
+
+# Frontend se staví ze samostatného contextu (frontend/Dockerfile), sem nepatří.
+frontend/

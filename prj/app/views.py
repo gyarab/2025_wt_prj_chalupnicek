@@ -13,7 +13,8 @@ from .models import Actor, Director, Genre, Movie, Rating
 def render_landing(request):
     # `/` slouží jako rozcestník mezi dvěma frontendy:
     # - klasický Django HTML frontend (server-rendered) na /movies/
-    # - nový Vue SPA frontend, který v dev běží na http://localhost:5173/
+    # - Vue SPA frontend: v dev běží na http://localhost:5173/, v produkci ho
+    #   nginx servíruje pod /app/. Odkaz dodává context processor (vue_frontend_url).
     return render(request, "landing.html")
 
 

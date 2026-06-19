@@ -7,6 +7,10 @@ import vue from '@vitejs/plugin-vue'
 // z jiného kontejneru (nginx) a /api by se proxovalo tam.
 export default defineConfig({
   plugins: [vue()],
+  // Pod jakou cestou appka běží. V dev je to `/` (Vite na :5173), v produkci se
+  // při buildu nastaví VITE_BASE=/app/ (viz frontend/Dockerfile), protože nginx
+  // servíruje Vue SPA vedle Django frontendu pod /app/.
+  base: process.env.VITE_BASE || '/',
   server: {
     port: 5173,
     proxy: {

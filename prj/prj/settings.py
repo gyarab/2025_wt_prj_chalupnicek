@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -18,14 +19,27 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
+#
+# Pro lokální vývoj fungují výchozí hodnoty níže (DEBUG, *, atd.) beze změny.
+# Na serveru je všechno přebito proměnnými prostředí (viz deploy/config/production.env),
+# takže `./manage.py runserver` se chová jako dřív a nasazení čte produkční nastavení z env.
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6j*yv8$tat9-@2s(80nn=s)y!c!w-je51le0pf1orz#g=zw_s7'
+SECRET_KEY = os.environ.get(
+    'DJANGO_SECRET_KEY',
+    'django-insecure-6j*yv8$tat9-@2s(80nn=s)y!c!w-je51le0pf1orz#g=zw_s7',
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '1') == '1'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '*').split(',')
+
+# Domény, kterým se věří POST formulářům (admin, přihlášení, hodnocení) — nutné, když
+# DEBUG=0 a aplikace běží za HTTPS. Prázdné v dev režimu.
+CSRF_TRUSTED_ORIGINS = [
+    o for o in os.environ.get('DJANGO_CSRF_TRUSTED_ORIGINS', '').split(',') if o
+]
 
 
 # Application definition
@@ -64,6 +78,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Odkaz na Vue SPA (navigace + rozcestník) – řízený VUE_FRONTEND_URL.
+                'app.context_processors.vue_frontend',
             ],
         },
     },
@@ -78,7 +94,9 @@ WSGI_APPLICATION = 'prj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # V kontejneru míří DJANGO_DB_PATH na perzistentní volume (/data/db/db.sqlite3),
+        # aby data přežila redeploy. Lokálně zůstává db.sqlite3 vedle manage.py.
+        'NAME': os.environ.get('DJANGO_DB_PATH', BASE_DIR / 'db.sqlite3'),
     }
 }
 
@@ -118,6 +136,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+# `collectstatic` posbírá statické soubory (vč. adminu) sem; v kontejneru je to
+# sdílený volume, ze kterého je servíruje nginx. Lokálně se nepoužívá.
+STATIC_ROOT = os.environ.get('DJANGO_STATIC_ROOT', BASE_DIR / 'staticfiles')
+
+# Uživatelsky nahrávaná média (zatím se nepoužívají — postery/fotky jsou URL),
+# ale necháme je správně nastavené pro budoucí ImageField a pro nginx /media/.
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.environ.get('DJANGO_MEDIA_ROOT', BASE_DIR / 'media')
+
+# Za reverzní proxy (nginx/traefik), která ukončuje HTTPS: věř hlavičce o schématu,
+# aby request.is_secure(), CSRF a redirecty fungovaly správně.
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Kam míří odkaz na Vue SPA z rozcestníku (`/`). V dev běží Vue na vlastním Vite
+# serveru (:5173), v produkci ho pod /app/ servíruje nginx z buildu (frontend/dist).
+VUE_FRONTEND_URL = os.environ.get('VUE_FRONTEND_URL', 'http://localhost:5173/')
 
 # Login / logout redirects
 LOGIN_URL = 'login'
