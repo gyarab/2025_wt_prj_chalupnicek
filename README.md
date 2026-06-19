@@ -296,7 +296,7 @@ z `/admin/login/`).
 
 ## Nasazení na server (deployment)
 
-Aplikace umí běžet i na reálném serveru (`gawt.dtcloud.cz`), zabalená do Docker
+Aplikace běží na reálném serveru na **https://vch.gawt.dtcloud.cz**, zabalená do Docker
 kontejnerů. Vše k tomu je ve složce [deploy/](deploy/) a v GitHub Action
 [.github/workflows/deploy.yml](.github/workflows/deploy.yml).
 
@@ -306,6 +306,8 @@ Stručně:
   [deploy/docker-compose.yml](deploy/docker-compose.yml). nginx je vstupní brána:
   servíruje nabuildovanou Vue SPA pod `/app/`, statiku (`/static/`) a média
   (`/media/`), zbytek proxuje na Django (`/`, `/movies/`, `/admin/`, `/api/`).
+- Provoz zvenčí (HTTPS) pouští na nginx **traefik** běžící na serveru — podle domény,
+  přes sdílenou síť `proxy` a traefik štítky na službě `frontend`.
 - **Ansible** ([deploy/playbooks/](deploy/playbooks/)) pošle commitnutý zdroják na
   server a postaví + spustí stack. Cílový server a SSH uživatel jsou ve verzovaném
   [deploy/inventory.ini](deploy/inventory.ini).
