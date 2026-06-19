@@ -1,9 +1,10 @@
 # Nasazení FilmDB (vch.gawt.dtcloud.cz) na server přes Ansible.
 #
 # Spouští se:
-#   - automaticky při pushi do `main` (jen deploy, data zůstávají)
-#   - ručně (Actions -> Deploy -> Run workflow), kde lze zaškrtnout "seed" a tím
-#     znovu naplnit databázi z fixtures (POZOR: napřed ji vyprázdní).
+#   - automaticky při pushi do `main`
+#   - ručně (Actions -> Deploy -> Run workflow)
+# Vždy jen nasadí kód (data zůstávají). Naplnění databáze z fixtures je samostatný
+# workflow „Seed database" (.github/workflows/seed.yml).
 #
 # Jediné tajemství je SSH klíč v repository secrets jako SSH_PRIVATE_KEY
 # (Settings -> Secrets and variables -> Actions). Veřejný klíč musí být v
@@ -14,11 +15,6 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-    inputs:
-      seed:
-        description: "Znovu naplnit databázi z fixtures (FLUSH + loaddata)"
-        type: boolean
-        default: false
 
 # Ať se dvě nasazení neperou o server.
 concurrency:
@@ -34,9 +30,9 @@ jobs:
     env:
       ANSIBLE_PRIVATE_KEY_FILE: ${{ github.workspace }}/.ssh-deploy-key
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -53,7 +49,3 @@ jobs:
 
       - name: Deploy stack
         run: ansible-playbook playbooks/deploy.yml
-
-      - name: Seed database (manual, optional)
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.seed }}
-        run: ansible-playbook playbooks/seed.yml

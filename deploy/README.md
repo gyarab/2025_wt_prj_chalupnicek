@@ -56,11 +56,15 @@ odkazuje přes `settings.VUE_FRONTEND_URL` (v produkci `/app/`, lokálně `:5173
 
 ## Nasazení přes GitHub Actions
 
-[.github/workflows/deploy.yml](../.github/workflows/deploy.yml):
+Dva oddělené workflowy:
 
-- **push do `main`** → automaticky se nasadí nová verze (data zůstanou).
-- **ručně** (Actions → *Deploy* → *Run workflow*) → můžeš zaškrtnout **seed** a tím
-  databázi znovu naplnit z fixtures.
+- **Deploy** ([.github/workflows/deploy.yml](../.github/workflows/deploy.yml)) — nasadí
+  kód. Spustí se automaticky při pushi do `main`, nebo ručně (Actions → *Deploy* →
+  *Run workflow*). Data v databázi zůstanou.
+- **Seed database** ([.github/workflows/seed.yml](../.github/workflows/seed.yml)) — jen
+  ručně. Znovu naplní databázi z fixtures (**POZOR: napřed ji vyprázdní**). Pro
+  potvrzení se do pole *confirm* píše `SEED`, nebo přes CLI:
+  `gh workflow run "Seed database" -f confirm=SEED`.
 
 ## Ruční nasazení (bez Actions)
 

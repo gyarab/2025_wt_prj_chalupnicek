@@ -311,8 +311,8 @@ Stručně:
 - **Ansible** ([deploy/playbooks/](deploy/playbooks/)) pošle commitnutý zdroják na
   server a postaví + spustí stack. Cílový server a SSH uživatel jsou ve verzovaném
   [deploy/inventory.ini](deploy/inventory.ini).
-- **GitHub Actions** deployuje při pushi do `main`; ruční spuštění umí navíc
-  *seed* (naplnění databáze z [fixtures/](fixtures/)).
+- **GitHub Actions** deployuje při pushi do `main` (workflow *Deploy*); naplnění
+  databáze z [fixtures/](fixtures/) je samostatný ruční workflow *Seed database*.
 - Jediné tajemství je SSH klíč v repository secrets jako `SSH_PRIVATE_KEY` —
   bezpečnost je tu pro účely výuky záměrně zjednodušená.
 
