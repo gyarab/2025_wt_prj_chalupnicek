@@ -11,18 +11,18 @@ a provoz zvenčí na ni pouští **traefik** (reverzní proxy na serveru).
 ## Jak to vypadá na serveru
 
 ```
-                       ┌──────────────────── server gawt.dtcloud.cz ────────────────────┐
-                       │  traefik  (HTTPS / Let's Encrypt, síť `proxy`)                   │
-   návštěvník ─HTTPS─► │     │  Host(vch.gawt.dtcloud.cz)                                  │
-                       │     ▼                                                            │
-                       │  frontend (nginx)                                                │
+                       ┌──────────────────── server gawt.dtcloud.cz ───────────────────────┐
+                       │  traefik  (HTTPS / Let's Encrypt, síť `proxy`)                    │
+ návštěvník ──HTTPS──► │     │  Host(vch.gawt.dtcloud.cz)                                  │
+                       │     ▼                                                             │
+                       │  frontend (nginx)                                                 │
                        │    /app/     →  Vue SPA (build z frontend/)                       │
                        │    /static/  →  statika Djanga   (volume static_data)             │
                        │    /media/   →  média            (volume media_data)              │
                        │    /…        →  proxy ──► web (gunicorn :8000)   [síť `internal`] │
                        │                          Django: /, /movies, /admin, /api         │
                        │                          SQLite (volume db_data)                  │
-                       └──────────────────────────────────────────────────────────────────┘
+                       └───────────────────────────────────────────────────────────────────┘
 ```
 
 Dvě služby (viz [docker-compose.yml](docker-compose.yml)):
@@ -111,13 +111,13 @@ docker compose --env-file config/production.env -f docker-compose.yml logs -f we
 Od `git push` po běžící web — co dělá GitHub Actions a co docker compose:
 
 ```
-  ┌─ tvůj počítač ─┐      ┌──────── GitHub Actions (runner) ────────┐      ┌──── server gawt.dtcloud.cz ────┐
-  │  git push main │ ───► │  workflow „Deploy"                       │      │  docker compose up -d --build  │
-  └────────────────┘      │   1. checkout repa                       │      │    ├─ build image web+frontend │
-                          │   2. instalace Ansible                   │ SSH  │    ├─ web: migrate+collectstatic│
-                          │   3. SSH klíč ze secrets (SSH_PRIVATE_KEY)│ ───► │    └─ kontejnery běží           │
-                          │   4. ansible-playbook deploy.yml          │      │  traefik → HTTPS pro doménu     │
-                          └──────────────────────────────────────────┘      └────────────────────────────────┘
+  ┌─ tvůj počítač ─┐      ┌──────── GitHub Actions (runner) ──────────┐      ┌───── server gawt.dtcloud.cz ─────┐
+  │  git push main │ ───► │  workflow „Deploy"                        │      │  docker compose up -d --build    │
+  └────────────────┘      │   1. checkout repa                        │      │    ├─ build image web+frontend   │
+                          │   2. instalace Ansible                    │ SSH  │    ├─ web: migrate+collectstatic │
+                          │   3. SSH klíč ze secrets (SSH_PRIVATE_KEY)│ ───► │    └─ kontejnery běží            │
+                          │   4. ansible-playbook deploy.yml          │      │  traefik → HTTPS pro doménu      │
+                          └───────────────────────────────────────────┘      └──────────────────────────────────┘
 ```
 
 1. **Push do `main`** (nebo ruční spuštění z Actions) nastartuje workflow
